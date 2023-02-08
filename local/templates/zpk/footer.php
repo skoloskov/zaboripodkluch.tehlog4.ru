@@ -1,0 +1,234 @@
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>-->
+<?
+//$title = 'Завод дверей: Входные металлические двери в '.$APPLICATION->GetPageProperty('regionSettings')['UF_INCITY'].' с любым типом отделки от производителя';
+//echo '<pre>'.print_r($APPLICATION->GetPageProperty('PageSettings'), true).'</pre>';die();
+if ($APPLICATION->GetPageProperty('PageSettings')['UF_TITLE']) {
+	$title = city_replace($APPLICATION->GetPageProperty('PageSettings')['UF_TITLE']);
+}
+
+//$keywords = 'Строительство заборов в '.$APPLICATION->GetPageProperty('regionSettings')['UF_INCITY'].' с установкой. Цены на работы с материалом.';
+if ($APPLICATION->GetPageProperty('PageSettings')['UF_KEYWORDS']) {
+	$keywords = city_replace($APPLICATION->GetPageProperty('PageSettings')['UF_KEYWORDS']);
+}
+
+//$description = 'Нужен забор в городе '.$APPLICATION->GetPageProperty('regionSettings')['UF_NAME'].'? Бесплатная консультация специалиста и выезд на объект. Доставка. Соблюдение сроков. Фото работ и отзывы клиентов.';
+
+if ($APPLICATION->GetPageProperty('PageSettings')['UF_DESCRIPTION']) {
+	$description = city_replace($APPLICATION->GetPageProperty('PageSettings')['UF_DESCRIPTION']);
+}
+
+$APPLICATION->SetPageProperty('title', $title);
+$APPLICATION->SetPageProperty('keywords', $keywords);
+$APPLICATION->SetPageProperty('description', $description);
+
+?>
+</main>
+<!-- Footer -->
+<footer class="footer">
+	<div class="container footer__container">
+		<ul class="footer__list">
+			<li class="footer__item">
+				<a class="footer__logo-link" href="#">
+					<img class="footer__logo" src="<?= SITE_TEMPLATE_PATH; ?>/img/logo.png" alt="Логотип" />
+				</a>
+			</li>
+			<li class="footer__item">
+				<div class="footer__subtitle">Заборы</div>
+				<ul class="footer__nav">
+					<li class="nav__item">
+						<a class="nav__link" href="/zabory-dlya-dachi/">Заборы для дачи</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/zabory-iz-profnastila/">Заборы из профнастила</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/zabory-iz-metallicheskogo-shtaketnika/">Заборы из еврошаткетника</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/zabory-iz-setki-rabitsy/">Заборы из сетки – рабицы</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/3d-zabory/">3D заборы</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/vorota/">Ворота</a>
+					</li>
+				</ul>
+			</li>
+			<li class="footer__item">
+				<div class="footer__subtitle">О сервисе</div>
+				<ul class="footer__nav">
+					<li class="nav__item">
+						<a class="nav__link" href="/privacy/">Политика конфиденциальности</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/feedback/">Жалобы и предложения </a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/moderation/">Модерация</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/smeta/">Осмечивание</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="/podbor-podryadchika/">Подбор подрядчика</a>
+					</li>
+				</ul>
+			</li>
+			<li class="footer__item">
+				<div class="footer__subtitle">Горячая линия</div>
+				<a class="footer__phone" href="tel:88003018735">8 (800) 301-87-35</a>
+				<div class="footer__block-contacts">
+					<a class="footer__mail" href="mailto:support@zaboripodkluch.ru">support@zaboripodkluch.ru</a>
+					<span class="footer__time">9:00 - 18:00</span>
+					<div class="footer__block-social">
+						<span class="footer__whatsapp"></span>
+						<span class="footer__viber"></span>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="container footer-bottom__container">
+		<div class="author">
+			Все материалы сайта являются объектами авторского права и защищаются законом РФ.<br />
+			Запрещается любое копирование или иное использование информации без согласия правообладателя.
+		</div>
+	</div>
+</footer>
+
+<?/* Модальное окно Заказать звонок */ ?>
+<div class="callback popup" id="callback">
+	<form class="callback__form js-form">
+		<div class="close">
+			<span class="close_icn"></span>
+		</div>
+		<div class="callback__title">Заказать звонок</div>
+		<p class="callback__desc">
+			Введите свои контактные данные и наш менеджер свяжется с Вами в
+			течение часа
+		</p>
+		<label class="callbox__lbl">
+			<span class="callbox__lbl_text">Введите ваше имя:</span>
+			<input type="text" name="name" required placeholder="Иван" />
+		</label>
+		<label class="callbox__lbl">
+			<span class="callbox__lbl_text">Номер телефона:</span>
+			<input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required data-validate-field="tel" data-validate-rules="phone" />
+		</label>
+		<label class="checkbox checkbox__lbl">
+			<input type="checkbox" checked="" name="Согласие" />
+			<span class="callbox__lbl_text checkbox__lbl_text">Я согласен с
+				<a class="checkbox__link" href="/privacy/" target="_blank">политикой конфиденциальности</a>
+			</span>
+		</label>
+		<button class="button primary js-submit">Отправить</button>
+	</form>
+	<div class="black"></div>
+</div>
+
+<?/* Модальное окно квиз */ ?>
+<div class="quiz__popup popup" id="quiz">
+	<?
+	$APPLICATION->IncludeComponent(
+		"bitrix:main.include",
+		"",
+		array(
+			"AREA_FILE_SHOW" => "file",
+			"AREA_FILE_SUFFIX" => "inc",
+			"EDIT_TEMPLATE" => "",
+			"PATH" => "/inc_areas/quiz.php",
+			"BLOCK" => 'modal'
+		)
+	);
+	?>
+	<div class="black"></div>
+</div>
+
+<?/*Модальное окно Спасибо*/ ?>
+<div class="thanks popup" id="thanks">
+	<div class="thanks__block">
+		<div class="thanks__name"></div>
+		<div class="thanks__text">
+			Благодарим Вас за заполнение опросника по расчету стоимости ограждения!<br />
+			Вашу заявку уже обрабатывают выбранные компании и отправят вам расчетную смету!<br /><br />
+			Из них Вы сможете выбрать лучшего исполнителя!
+		</div>
+		<button type="button" class="thanks__btn btn">Спасибо</button>
+	</div>
+	<div class="black"></div>
+</div>
+<!-- Возврат вверх -->
+<a id="button__up"></a>
+<!-- Модальное окно для фотографий -->
+<!-- <div class="photoView">
+      <div class="photo__slider"></div>
+      <div class="black"></div>
+    </div> -->
+
+<?/* JQuery */ ?>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<?/* Slider click */ ?>
+<script src="<?= SITE_TEMPLATE_PATH; ?>/script/slick.min.js"></script>
+
+<?/* lazyload */ ?>
+<script src="<?= SITE_TEMPLATE_PATH; ?>/script/lazyload.min.js"></script>
+
+<!-- Modal Win -->
+<script src="<?= SITE_TEMPLATE_PATH; ?>/script/modal_win.js"></script>
+<script src="<?= SITE_TEMPLATE_PATH; ?>/script/modal_photo.js"></script>
+<!-- JS -->
+<script src="<?= SITE_TEMPLATE_PATH; ?>/script/new_scripts.min.js"></script>
+
+
+
+<!-- Mask and validation form -->
+<script src="<?= SITE_TEMPLATE_PATH; ?>/script/inputmask.min.js"></script>
+<script src="<?= SITE_TEMPLATE_PATH; ?>/script/just-validate.min.js"></script>
+<?
+if (strpos($APPLICATION->getCurPage(), 'domens-admin') != 0) {
+?>
+	<script type="text/javascript" src="/domens-admin/domens-admin.js"></script>
+<?
+}
+?>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+	(function(m, e, t, r, i, k, a) {
+		m[i] = m[i] || function() {
+			(m[i].a = m[i].a || []).push(arguments)
+		};
+		m[i].l = 1 * new Date();
+		k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+	})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+	ym(79619314, "init", {
+		clickmap: true,
+		trackLinks: true,
+		accurateTrackBounce: true,
+		webvisor: true
+	});
+</script>
+<noscript>
+	<div><img src="https://mc.yandex.ru/watch/79619314" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<sc ript async src="https://www.googletagmanager.com/gtag/js?id=G-SRQZP2RH0V"></sc ript>
+<script>
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', 'G-SRQZP2RH0V');
+</script>
+</body>
+
+</html>
