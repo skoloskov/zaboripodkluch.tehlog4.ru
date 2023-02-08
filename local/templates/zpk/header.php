@@ -23,7 +23,8 @@ IncludeTemplateLangFile(__FILE__);
   <link type="text/css" rel="stylesheet" href="<?= SITE_TEMPLATE_PATH; ?>/css/style.css" />
   <link type="text/css" rel="stylesheet" href="<?= SITE_TEMPLATE_PATH; ?>/css/normalize.css" />
 
-  <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH; ?>/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH; ?>/css/jquery-ui.css">
 
   <? $APPLICATION->ShowHead(); ?>
   <title>
@@ -37,21 +38,19 @@ IncludeTemplateLangFile(__FILE__);
   <header class="header">
       <div class="preheader">
           <div class="container">
-              <div class="preheader_city">Москва</div>
-              <div class="preheader_phone"><a href="tel:88003018735" class="phone-block__link"><b>8 (800)</b> 301-87-35</a></div>
+              <div class="preheader_city"><i class="fas fa-map-marker-alt"></i>Москва<i class="fas fa-chevron-down"></i></div>
+              <div class="preheader_phone"><a href="tel:88003018735">8 (800) 301-87-35</a></div>
           </div>
       </div>
     <div class="container header__container">
-        <div class="">
+        <div class="main_menu">
             <nav class="burger">
                 <button type="button" class="burger_toggle">
                     <span class="burger_top"></span>
                     <span class="burger_middle"></span>
                     <span class="burger_bottom"></span>
                 </button>
-                <div class="header__el header__desc">
-                    <a href="/" class="header__catalog">Каталог</a>
-                </div>
+                <a href="/" class="header__catalog">Каталог</a>
             </nav>
         </div>
         <div class="header__el header__desc">

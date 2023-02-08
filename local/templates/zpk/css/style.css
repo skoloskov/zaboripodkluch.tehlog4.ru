@@ -114,8 +114,9 @@ fieldset {
 }
 
 /* бургер */
-.burger {
-  display: none;
+
+.main_menu {
+  height: 15px;
 }
 
 .burger__content {
@@ -127,17 +128,107 @@ fieldset {
   top: 0;
 }
 
+.burger_toggle:focus {
+  outline-width: 0;
+}
+
+.burger_toggle [class*='burger_'] {
+  background: var(--first-bg);
+  display: block;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .2s ease all;
+  transition: .2s ease all;
+  margin-bottom: 16px;
+  border-radius: 2px;
+  height: 4px;
+  width: 30px;
+  margin-bottom: 5px;
+}
+
+.burger_toggle .burger_bottom {
+  margin-bottom: 0;
+}
+
+.opened .burger_top {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 15% 15%;
+  transform-origin: 15% 15%;
+}
+.opened .burger_middle {
+  opacity: 0;
+}
+.opened .burger_bottom {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 15% 95%;
+  transform-origin: 15% 95%;
+}
+
+.burger__content {
+  padding: 80px 20px 20px 20px;
+  width: 40%;
+  right: 0;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow:-10px 16px 32px 0px rgba(0,0,0,0.09);
+  -webkit-box-shadow:-10px 16px 32px 0px rgba(0,0,0,0.09);
+  -moz-box-shadow:-10px 16px 32px 0px rgba(0,0,0,0.09);
+}
+
+.burger__list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.burger__item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+
 /* Стилизация Header */
+
+.preheader {
+  background-color: #b3cd34;
+  color: #ffffff;
+  padding: 10px 0;
+}
+
+.preheader .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.preheader_city {
+  position: relative;
+  cursor: pointer;
+}
+
+.preheader_city i {
+  padding: 0 5px;
+}
+
+.fa-chevron-down::before {
+  position: absolute;
+  bottom: -2px;
+}
+
+.preheader a {
+  color: #FFFFFF;
+}
+
 header {
   position: relative;
   width: 100%;
-  height: 175px;
   border-bottom: 1px solid var(--first-bg);
 }
 
 .header__container,
 .header__el {
   display: flex;
+  padding: 10px 0;
 }
 
 .header__desc,
@@ -3355,6 +3446,7 @@ form .smeta-form__input {
 @media (max-width: 1520px) {
   .header__desc {
     width: auto;
+    max-width: 25%;
   }
 
   .hero__title {
@@ -3447,7 +3539,7 @@ form .smeta-form__input {
   }
 
   .header__link {
-    width: 170px;
+    width: auto;
   }
 
   .header__address {
@@ -4490,7 +4582,7 @@ form .smeta-form__input {
   }
 }
 /* 768px */
-@media (max-width: 768px) {
+
   .burger {
     display: block;
   }
@@ -4508,72 +4600,7 @@ form .smeta-form__input {
             transform: translate(-50%, -50%);
   }
   
-  .burger_toggle:focus {
-    outline-width: 0;
-  }
-  
-  .burger_toggle [class*='burger_'] {
-    background: var(--first-bg);
-    display: block;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    -webkit-transition: .2s ease all;
-            transition: .2s ease all;
-    margin-bottom: 16px;
-    border-radius: 2px;
-    height: 2px;
-    width: 25px;
-    margin-bottom: 4px;
-  }
-  
-  .burger_toggle .burger_bottom {
-    margin-bottom: 0;
-  }
-  
-  .opened .burger_top {
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    -webkit-transform-origin: 15% 15%;
-            transform-origin: 15% 15%;
-  }
-  .opened .burger_middle {
-    opacity: 0;
-  }
-  .opened .burger_bottom {
-    -webkit-transform: rotate(45deg);
-            transform: rotate(-45deg);
-    -webkit-transform-origin: 15% 95%;
-            transform-origin: 15% 95%;
-  }
-
-  .burger__content {
-    padding: 80px 20px 20px 20px;
-    width: 40%;
-    right: 0;
-    border-radius: 15px;
-    background-color: #fff;
-    box-shadow:-10px 16px 32px 0px rgba(0,0,0,0.09);
--webkit-box-shadow:-10px 16px 32px 0px rgba(0,0,0,0.09);
--moz-box-shadow:-10px 16px 32px 0px rgba(0,0,0,0.09);
-  }
-
-  .burger__list {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-  }
-
-  .burger__item:not(:last-child) {
-margin-bottom: 15px;
-  }
-
-.header__btn {
-  display: none;
-}
-
-  .header__phone-block {
-    width: 330px;
-  }
+ @media (max-width: 768px) {
   .hero {
     margin-bottom: 30px;
     background-image: none;
