@@ -193,7 +193,7 @@ header {
 }
 
 .header__phone-block {
-  width: 205px;
+  width: auto;
 }
 
 .header__phone-block_position {
@@ -3484,7 +3484,7 @@ form .smeta-form__input {
   }
 
   .header__phone-block {
-    width: 395px;
+    width: auto;
   }
 
   .phone-block__link {

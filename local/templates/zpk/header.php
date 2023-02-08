@@ -35,47 +35,36 @@ IncludeTemplateLangFile(__FILE__);
   <? $APPLICATION->ShowPanel() ?>
   <?/* Header */ ?>
   <header class="header">
-    <div class="container header__container">
-      <div class="header__el header__desc">
-        <a class="header__link" href="/">
-          <img class="header__img" src="<?= SITE_TEMPLATE_PATH; ?>/img/logo.png" alt="<?= city_replace($APPLICATION->GetPageProperty('pageSettings')['UF_ALTLOGO']) ?>" title="<?= city_replace($APPLICATION->GetPageProperty('pageSettings')['UF_ALTLOGO']) ?>" />
-        </a>
+      <div class="preheader">
+          <div class="container">
+              <div class="preheader_city">Москва</div>
+              <div class="preheader_phone"><a href="tel:88003018735" class="phone-block__link"><b>8 (800)</b> 301-87-35</a></div>
+          </div>
       </div>
-
+    <div class="container header__container">
+        <div class="">
+            <nav class="burger">
+                <button type="button" class="burger_toggle">
+                    <span class="burger_top"></span>
+                    <span class="burger_middle"></span>
+                    <span class="burger_bottom"></span>
+                </button>
+                <div class="header__el header__desc">
+                    <a href="/" class="header__catalog">Каталог</a>
+                </div>
+            </nav>
+        </div>
+        <div class="header__el header__desc">
+            <a class="header__link" href="/">
+                <img class="header__img" src="<?= SITE_TEMPLATE_PATH; ?>/img/logo.png" alt="<?= city_replace($APPLICATION->GetPageProperty('pageSettings')['UF_ALTLOGO']) ?>" title="<?= city_replace($APPLICATION->GetPageProperty('pageSettings')['UF_ALTLOGO']) ?>" />
+            </a>
+        </div>
       <div class="header__el header__phone-block">
         <div class="header__phone-block_position">
-          <a href="tel:88003018735" class="phone-block__link"><b>8 (800)</b> 301-87-35</a>
-          <span class="phone-block__el phone-block__desc">Пн-Вс с 9:00 до 18:00</span>
-        </div>
-        <nav class="burger">
-          <button type="button" class="burger_toggle">
-            <span class="burger_top"></span>
-            <span class="burger_middle"></span>
-            <span class="burger_bottom"></span>
-          </button>
-        </nav>
-        <div class="burger__content">
-          <ul class="burger__list">
-            <li class="burger__item">
-              <a href="/zabory-dlya-dachi/" class="burger__link">Заборы для дачи</a>
-            </li>
-              <li class="burger__item">
-                  <a href="/zabory-dlya-dachi/" class="burger__link">Заборы для дачи</a>
-              </li>
-              <li class="burger__item">
-                  <a href="/zabory-dlya-dachi/" class="burger__link">Заборы для дачи</a>
-              </li>
-          </ul>
-          <button type="button" class="burger__btn btn">Заказать звонок</button>
+            <button type="button" class="header__btn btn">+ Оформить тендер</button>
         </div>
       </div>
     </div>
-      <div class="container header__container">
-          <div class="header__el header__desc">
-              <a href="/" class="header__catalog">Каталог</a>
-          </div>
-          <button type="button" class="header__btn btn">Заказать звонок</button>
-      </div>
   </header>
   <?/* Главная секция */ ?>
   <!-- Main -->
