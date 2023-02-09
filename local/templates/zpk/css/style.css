@@ -86,7 +86,6 @@ fieldset {
 }
 
 .main__title {
-  text-transform: uppercase;
   font-size: var(--h1);
   text-align: center;
   font-family: var(--MontserratB);
@@ -99,7 +98,6 @@ fieldset {
 }
 
 .btn {
-  border-radius: 7px;
   border: 3px solid var(--bd-hero-btn);
   color: var(--bd-hero-btn);
 }
@@ -141,9 +139,9 @@ fieldset {
   transition: .2s ease all;
   margin-bottom: 16px;
   border-radius: 2px;
-  height: 4px;
-  width: 30px;
-  margin-bottom: 5px;
+  height: 5px;
+  width: 35px;
+  margin-bottom: 6px;
 }
 
 .burger_toggle .burger_bottom {
@@ -247,6 +245,7 @@ header {
   align-items: center;
   width: 210px;
   margin-right: 20px;
+  margin-left: 20px;
 }
 
 .header__img {
@@ -334,7 +333,7 @@ header {
   margin-bottom: 100px;
 }
 /* Стилизация секции Hero */
-.hero {
+.hero__container {
   height: 635px;
   background-image: url("../img/hero__bg.png");
   background-repeat: no-repeat;
@@ -351,7 +350,7 @@ header {
 .hero__title {
   width: 90%;
   text-align: left;
-  line-height: 67px;
+  line-height: 40px;
   margin-bottom: 60px;
 }
 
@@ -361,8 +360,8 @@ header {
 
 .hero__desc {
   width: 74%;
-  font-size: 20px;
-  line-height: 42px;
+  font-size: 16px;
+  line-height: 26px;
   margin-bottom: 90px;
 }
 
@@ -3409,15 +3408,15 @@ form .smeta-form__input {
     height: 560px;
   }
   .hero__title {
-    font-size: 41px;
-    line-height: 57px;
+    font-size: 36px;
+    line-height: 40px;
     margin-bottom: 50px;
   }
 
   .hero__desc {
     width: 72%;
-    font-size: 22px;
-    line-height: 38px;
+    font-size: 16px;
+    line-height: 26px;
     margin-bottom: 80px;
   }
 
@@ -3446,12 +3445,12 @@ form .smeta-form__input {
 @media (max-width: 1520px) {
   .header__desc {
     width: auto;
-    max-width: 25%;
+    max-width: 28%;
   }
 
   .hero__title {
     font-size: 35px;
-    line-height: 53px;
+    line-height: 41px;
     margin-bottom: 30px;
   }
 
@@ -3598,7 +3597,7 @@ form .smeta-form__input {
 
   .hero__desc {
     font-size: 16px;
-    line-height: 32px;
+    line-height: 26px;
     margin-bottom: 48px;
   }
   .hero__btn {

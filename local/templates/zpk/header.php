@@ -43,17 +43,17 @@ IncludeTemplateLangFile(__FILE__);
           </div>
       </div>
     <div class="container header__container">
-        <div class="main_menu">
-            <nav class="burger">
-                <button type="button" class="burger_toggle">
-                    <span class="burger_top"></span>
-                    <span class="burger_middle"></span>
-                    <span class="burger_bottom"></span>
-                </button>
-                <a href="/" class="header__catalog">Каталог</a>
-            </nav>
-        </div>
+
         <div class="header__el header__desc">
+            <div class="main_menu">
+                <nav class="burger">
+                    <button type="button" class="burger_toggle">
+                        <span class="burger_top"></span>
+                        <span class="burger_middle"></span>
+                        <span class="burger_bottom"></span>
+                    </button>
+                </nav>
+            </div>
             <a class="header__link" href="/">
                 <img class="header__img" src="<?= SITE_TEMPLATE_PATH; ?>/img/logo.png" alt="<?= city_replace($APPLICATION->GetPageProperty('pageSettings')['UF_ALTLOGO']) ?>" title="<?= city_replace($APPLICATION->GetPageProperty('pageSettings')['UF_ALTLOGO']) ?>" />
             </a>
