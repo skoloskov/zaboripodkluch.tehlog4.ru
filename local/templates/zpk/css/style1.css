@@ -86,6 +86,7 @@ fieldset {
 }
 
 .main__title {
+  text-transform: uppercase;
   font-size: var(--h1);
   text-align: center;
   font-family: var(--MontserratB);
@@ -98,6 +99,7 @@ fieldset {
 }
 
 .btn {
+  border-radius: 1px;
   border: 3px solid var(--bd-hero-btn);
   color: var(--bd-hero-btn);
 }
@@ -139,9 +141,9 @@ fieldset {
   transition: .2s ease all;
   margin-bottom: 16px;
   border-radius: 2px;
-  height: 5px;
-  width: 35px;
-  margin-bottom: 6px;
+  height: 4px;
+  width: 30px;
+  margin-bottom: 5px;
 }
 
 .burger_toggle .burger_bottom {
@@ -151,8 +153,8 @@ fieldset {
 .opened .burger_top {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-  -webkit-transform-origin: 0% 150%;
-  transform-origin: 0% 150%;
+  -webkit-transform-origin: 15% 15%;
+  transform-origin: 15% 15%;
 }
 .opened .burger_middle {
   opacity: 0;
@@ -160,8 +162,8 @@ fieldset {
 .opened .burger_bottom {
   -webkit-transform: rotate(45deg);
   transform: rotate(-45deg);
-  -webkit-transform-origin: 20% 0%;
-  transform-origin: 20% 0%;
+  -webkit-transform-origin: 15% 95%;
+  transform-origin: 15% 95%;
 }
 
 .burger__content {
@@ -245,7 +247,6 @@ header {
   align-items: center;
   width: 210px;
   margin-right: 20px;
-  margin-left: 20px;
 }
 
 .header__img {
@@ -332,15 +333,10 @@ header {
   padding-top: 15px;
   margin-bottom: 100px;
 }
-
-.hero {
-  margin-bottom: 100px;
-}
-
 /* Стилизация секции Hero */
-.hero__container {
+.hero {
   height: 635px;
-  background-image: url("../img/hero__bg.webp");
+  background-image: url("../img/hero__bg.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 100% 100%;
@@ -352,14 +348,10 @@ header {
   flex-direction: column;
 }
 
-.hero__container_block {
-  width: 90%;
-}
-
 .hero__title {
   width: 90%;
   text-align: left;
-  line-height: 40px;
+  line-height: 67px;
   margin-bottom: 60px;
 }
 
@@ -369,9 +361,16 @@ header {
 
 .hero__desc {
   width: 74%;
-  font-size: 16px;
-  line-height: 26px;
-  margin-bottom: 90px;
+  font-size: 20px;
+  line-height: 42px;
+  margin-bottom: 10px;
+}
+
+.hero__desc2 {
+  width: 74%;
+  font-size: 20px;
+  line-height: 42px;
+  margin-bottom: 30px;
 }
 
 .hero__btn {
@@ -392,63 +391,6 @@ header {
 .hero__small {
   font-weight: normal;
   font-size: 0.6em;
-}
-
-.hero__indicators {
-  display: flex;
-  justify-content: start;
-}
-
-.hero__indicatros_item {
-  margin-right: 30px;
-}
-
-.hero__indicatros_item span {
-  color: #b3cd34;
-  font-weight: 700;
-}
-
-.hero__buttons {
-  display: flex;
-  justify-content: start;
-  margin-top: 30px;
-}
-
-.hero__button_item, .hero__button_item_button, .hero__button_item_desc   {
-  display: block;
-}
-
-.hero__button_item {
-  text-align: center;
-  margin-right: 40px;
-}
-
-.hero__button_item:before {
-  content: '';
-  width: 73px;
-  height: 72px;
-  margin-right: 30px;
-  display: block;
-  background-image: url(../img/sprite-how-it-works.png);
-  background-position: 0 0;
-  margin: 10px auto;
-}
-
-.hero__button_item_tender:before {
-  background-position: -83px 0;
-}
-
-.hero__button_item_desc {
-  padding-top: 13px;
-  font-size: 13px;
-  line-height: 17px;
-}
-
-.hero__buttons .hero__button_item .hero__button_item_button {
-  padding: 15px 20px;
-  margin: 0 auto;
-  background-color: #ff0042;
-  color: #ffffff;
 }
 
 /* Стилизация секции Виды заборов */
@@ -598,7 +540,7 @@ hr {
   width: 130px;
   height: 50px;
   color: #fff;
-  border-radius: 7px;
+  border-radius: 2px;
   font-size: 16px;
   border: none;
   background: var(--bd-hero-btn);
@@ -608,7 +550,7 @@ hr {
   width: 130px;
   height: 30px;
   border: 1px solid #3272ae;
-  border-radius: 7px;
+  border-radius: 2px;
   background-color: #fafafa;
   color: #4e88ba;
   font-size: 14px;
@@ -628,7 +570,7 @@ hr {
   display: flex;
   padding: 35px 40px 140px 40px;
   border: 1px solid var(--first-bg);
-  border-radius: 15px;
+  border-radius: 2px;
   box-shadow: 0px 5px 14px 0px rgba(142, 165, 26, 0.5);
   margin-bottom: 40px;
 }
@@ -650,7 +592,7 @@ hr {
   background-color: var(--first-bg);
   color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 2px;
   text-align: center;
   padding: 1em 0em;
 }
@@ -716,7 +658,7 @@ hr {
   background-color: var(--bd-hero-btn);
   color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 2px;
   padding: 1em 0em;
   margin-right: 25px;
 }
@@ -743,7 +685,7 @@ hr {
   width: 140px;
   font-weight: 700;
   border: 2px solid var(--bd-hero-btn);
-  border-radius: 20px;
+  border-radius: 2px;
   color: var(--bd-hero-btn);
   padding: 1em 0.8em;
   margin-right: 25px;
@@ -757,7 +699,7 @@ hr {
   font-weight: bold;
   color: #fff;
   font-size: 17px;
-  border-radius: 20px;
+  border-radius: 2px;
   background-color: var(--first-bg);
 }
 
@@ -822,7 +764,7 @@ hr {
   height: 40px;
   width: 40px;
   border: none;
-  border-radius: 50%;
+  border-radius: 2px;
   background-color: #fff;
   box-shadow: 1px 8px 26px 0px rgba(0, 0, 0, 0.21);
 }
@@ -1016,7 +958,7 @@ hr {
   margin: 30px 30px 50px 26px;
   height: 230px;
   border: 2px solid var(--first-bg);
-  border-radius: 20px;
+  border-radius: 2px;
   padding-top: 35px;
   padding-left: 35px;
   box-shadow: 1px 8px 26px 0px rgba(142, 165, 26, 0.4);
@@ -1408,7 +1350,7 @@ select {
   font-size: 14px;
   height: 50px;
   border: none;
-  padding: 20px 30px;
+  padding: 10px 30px;
   background-color: rgba(233, 242, 191, 0.3);
   border-radius: 5px;
 }
@@ -1825,9 +1767,10 @@ select {
 
 .territory__select {
   width: 40%;
-  height: 60px;
+  /*height: 60px;*/
   margin-bottom: 20px;
   border: 2px solid var(--bg-type-link);
+  border-radius: 2px;
 }
 
 .territory__list {
@@ -1957,7 +1900,7 @@ select {
   border: none;
   font-size: 14px;
   color: #fff;
-  border-radius: 18px;
+  border-radius: 2px;
   transition: 0.4s;
   margin: 0 auto 40px auto;
   cursor: pointer;
@@ -1976,7 +1919,7 @@ select {
   border: none;
   font-size: 14px;
   color: #fff;
-  border-radius: 18px;
+  border-radius: 2px;
   margin-bottom: 40px;
   cursor: pointer;
 }
@@ -3214,7 +3157,7 @@ form .smeta-form__input {
   height: 50px;
   border: none;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .questions__back {
@@ -3474,16 +3417,16 @@ form .smeta-form__input {
     height: 560px;
   }
   .hero__title {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 41px;
+    line-height: 57px;
     margin-bottom: 50px;
   }
 
   .hero__desc {
     width: 72%;
-    font-size: 16px;
-    line-height: 26px;
-    margin-bottom: 80px;
+    font-size: 22px;
+    line-height: 38px;
+    margin-bottom: 18px;
   }
 
   .phone-block__desc {
@@ -3511,12 +3454,12 @@ form .smeta-form__input {
 @media (max-width: 1520px) {
   .header__desc {
     width: auto;
-    max-width: 28%;
+    max-width: 25%;
   }
 
   .hero__title {
     font-size: 35px;
-    line-height: 41px;
+    line-height: 53px;
     margin-bottom: 30px;
   }
 
@@ -3663,8 +3606,8 @@ form .smeta-form__input {
 
   .hero__desc {
     font-size: 16px;
-    line-height: 26px;
-    margin-bottom: 48px;
+    line-height: 32px;
+    margin-bottom: 18px;
   }
   .hero__btn {
     width: 30%;
@@ -5675,6 +5618,3 @@ form .smeta-form__input {
     width: 100%;
   }
 }
-
-/* выпадающее меню */
-

@@ -10,7 +10,8 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 		"EDIT_TEMPLATE" => "",
 		"PATH" => "/inc_areas/top_block.php"
 	)
-);?> <?/* открытый квиз */ ?> <section class="quiz-section">
+);?> 
+<?/* открытый квиз  <section class="quiz-section">
 <div class="container quiz-section__container" id="open_quiz">
 	<div class="quiz-section__header">
  <span class="quiz-section__title">Расчет стоимости забора</span>
@@ -27,7 +28,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 	)
 );?>
 </div>
- </section>
+ </section>*/ ?>
 <?/* Секция Виды заборов */ ?> <?$APPLICATION->IncludeComponent(
 	"seologica:catalog.section.list",
 	"index_page_list",
