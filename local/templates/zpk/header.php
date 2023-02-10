@@ -65,6 +65,16 @@ IncludeTemplateLangFile(__FILE__);
       </div>
     </div>
   </header>
+  <?$APPLICATION->IncludeComponent(
+      "bitrix:main.include",
+      "",
+      Array(
+          "AREA_FILE_SHOW" => "file",
+          "AREA_FILE_SUFFIX" => "inc",
+          "EDIT_TEMPLATE" => "",
+          "PATH" => "/inc_areas/menu.php"
+      )
+  );?>
   <?/* Главная секция */ ?>
   <!-- Main -->
   <main class="main">
