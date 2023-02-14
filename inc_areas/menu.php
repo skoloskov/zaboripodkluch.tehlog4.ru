@@ -3,6 +3,7 @@
 ?>
 
 <div class="menu_burger">
+    <div class="menu_burger__backdrop"></div>
     <div class="menu_burger__main">
         <ul class="menu_burger__main_list">
             <li class="menu_burger__main_list_item" data-menuid="01">

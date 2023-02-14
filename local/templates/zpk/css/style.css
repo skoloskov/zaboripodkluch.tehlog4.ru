@@ -5690,15 +5690,27 @@ form .smeta-form__input {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  width: auto;
-  max-width: 1223px;
-  height: auto;
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
   left: -105%;
   z-index: 99;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  background: #fff;
+}
+
+.menu_burger__backdrop {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  background: #3d464d;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.menu_burger__active .menu_burger__backdrop {
+  opacity: .5;
 }
 
 .menu_burger__active {
@@ -5709,12 +5721,14 @@ form .smeta-form__input {
   overflow-y: auto;
   scrollbar-width: thin;
   width: 300px;
-  height: 100%;
+  height: auto;
   -ms-flex-negative: 0;
   flex-shrink: 0;
   background: #fff;
   padding: 20px 0 20px 30px;
   scrollbar-color: #d5d5d5 transparent;
+  background-color: #ffffff;
+  z-index: 99999;
 }
 
 .menu_burger ul {
