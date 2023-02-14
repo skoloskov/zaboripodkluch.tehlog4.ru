@@ -103,25 +103,94 @@ $APPLICATION->SetPageProperty('description', $description);
 		<div class="close">
 			<span class="close_icn"></span>
 		</div>
-		<div class="callback__title">Заказать звонок</div>
-		<p class="callback__desc">
-			Введите свои контактные данные и наш менеджер свяжется с Вами в
-			течение часа
-		</p>
-		<label class="callbox__lbl">
-			<span class="callbox__lbl_text">Введите ваше имя:</span>
-			<input type="text" name="name" required placeholder="Иван" />
-		</label>
-		<label class="callbox__lbl">
-			<span class="callbox__lbl_text">Номер телефона:</span>
-			<input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required data-validate-field="tel" data-validate-rules="phone" />
-		</label>
-		<label class="checkbox checkbox__lbl">
-			<input type="checkbox" checked="" name="Согласие" />
-			<span class="callbox__lbl_text checkbox__lbl_text">Я согласен с
+		<div class="callback__title">Оформить тендер на забор</div>
+        <div class="callback__order_block">
+            <div class="callback__title callback__second_title">Параметры забора</div>
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Вид забора:</span>
+                <select>
+                    <option selected>Профнастил</option>
+                    <option>Сетка-рабица</option>
+                    <option>Металоштакетник</option>
+                    <option>Поликарбонат</option>
+                    <option>Сварные</option>
+                    <option>Шумозащитные</option>
+                    <option>3D</option>
+                </select>
+            </label>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Основание забора:</span>
+                <select>
+                    <option selected>Забивные столбы</option>
+                    <option>Утрамбовка щебнем</option>
+                    <option>Бетонирование столбов</option>
+                    <option>Ленточный фундамент</option>
+                    <option>Кирпичные столбы</option>
+                </select>
+            </label>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Ворота:</span>
+                <select>
+                    <option selected>Не нужны</option>
+                    <option>Откатные</option>
+                    <option>Откатные с автоматикой</option>
+                    <option>Распашные</option>
+                    <option>Распашные с автоматикой</option>
+                </select>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Высота забора:</span>
+                <input type="text" name="height_fence" required placeholder="2 метра" />
+            </label>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Длина забора:</span>
+                <input type="text" name="lenght_fence" required placeholder="200 метров" />
+            </label>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Описание заказа:</span>
+                <textarea placeholder="Описание заказа"></textarea>
+            </label>
+        </div>
+
+        <div class="callback__user_block">
+            <div class="callback__title callback__second_title">Данные клиента</div>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Место установки:</span>
+                <input type="text" name="place_fence" required placeholder="Населенный пункт" />
+            </label>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Дата установки:</span>
+                <input type="date" name="date_fence" />
+            </label>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Введите ваше имя:</span>
+                <input type="text" name="name" placeholder="Иван" />
+            </label>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">Номер телефона:</span>
+                <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" required data-validate-field="tel" data-validate-rules="phone" />
+            </label>
+
+            <label class="callbox__lbl">
+                <span class="callbox__lbl_text">E-mail:</span>
+                <input type="text" name="email" placeholder="info@site.ru" />
+            </label>
+
+            <label class="checkbox checkbox__lbl">
+                <input type="checkbox" checked="" name="Согласие" />
+                <span class="callbox__lbl_text checkbox__lbl_text">Я согласен с
 				<a class="checkbox__link" href="/privacy/" target="_blank">политикой конфиденциальности</a>
 			</span>
-		</label>
+            </label>
+        </div>
 		<button class="button primary js-submit">Отправить</button>
 	</form>
 	<div class="black"></div>

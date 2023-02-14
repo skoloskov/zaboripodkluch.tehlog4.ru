@@ -231,7 +231,7 @@ header {
 
 .header__desc,
 .header__phone-block {
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .header__container {
@@ -1312,7 +1312,7 @@ hr {
 .callback__form,
 .thanks__block {
   width: 100%;
-  max-width: 450px;
+  max-width: 900px;
   padding: 40px;
   background-color: #fff;
   margin: 0 auto;
@@ -1367,6 +1367,17 @@ hr {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 15px;
+  width: 100%;
+}
+
+.callback__second_title {
+  font-size: 18px;
+}
+
+.callback__order_block,
+.callback__user_block {
+  width: 50%;
+  padding: 20px;
 }
 
 .callback__desc {
@@ -1398,19 +1409,30 @@ hr {
   border: none;
 }
 
+.callback__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 input[type="text"],
 input[type="tel"],
 input[type="number"],
 input[type="date"],
-select {
+select,
+textarea {
   width: 100%;
   display: block;
   font-size: 14px;
-  height: 50px;
   border: none;
   padding: 20px 30px;
   background-color: rgba(233, 242, 191, 0.3);
   border-radius: 5px;
+  height: 60px;
+}
+
+textarea {
+  height: 160px;
 }
 
 .checkbox input[type="checkbox"] {
