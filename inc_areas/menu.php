@@ -2,53 +2,40 @@
     if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 ?>
 
-<div class="menu_burger menu_burger__active">
+<div class="menu_burger">
     <div class="menu_burger__main">
         <ul class="menu_burger__main_list">
-            <li class="menu_burger__main_list_item">
-                <a href="/" class="menu_burger__link">ИМЯ</a>
+            <li class="menu_burger__main_list_item" data-menuid="01">
+                <a href="/zabory-dlya-dachi/" class="menu_burger__link">Заборы для дачи</a>
             </li>
-            <li class="menu_burger__main_list_item">
-                <a href="/" class="menu_burger__link">ИМЯ</a>
+            <li class="menu_burger__main_list_item" data-menuid="02">
+                <a href="/zabory-iz-profnastila/" class="menu_burger__link">Заборы из профнастила</a>
             </li>
-            <li class="menu_burger__main_list_item">
-                <a href="/" class="menu_burger__link">ИМЯ</a>
+            <li class="menu_burger__main_list_item" data-menuid="03">
+                <a href="/zabory-iz-setki-rabitsy/" class="menu_burger__link">Заборы из сетки-рабицы</a>
             </li>
-            <li class="menu_burger__main_list_item">
-                <a href="/" class="menu_burger__link">ИМЯ</a>
+            <li class="menu_burger__main_list_item" data-menuid="04">
+                <a href="/zabory-iz-metallicheskogo-shtaketnika/" class="menu_burger__link">Заборы из металлического штакетника</a>
+            </li>
+            <li class="menu_burger__main_list_item" data-menuid="05">
+                <a href="/3d-zabory/" class="menu_burger__link">3D Заборы</a>
+            </li>
+            <li class="menu_burger__main_list_item" data-menuid="06">
+                <a href="/zabory-iz-polikarbonata/" class="menu_burger__link">Заборы из поликарбоната</a>
+            </li>
+            <li class="menu_burger__main_list_item" data-menuid="07">
+                <a href="/navesy/" class="menu_burger__link">Навесы</a>
+            </li>
+            <li class="menu_burger__main_list_item" data-menuid="08">
+                <a href="/svarnye-zabory/" class="menu_burger__link">Сварные заборы</a>
+            </li>
+            <li class="menu_burger__main_list_item" data-menuid="09">
+                <a href="/shumozashchitnye-zabory/" class="menu_burger__link">Шумозащитные заборы</a>
+            </li>
+            <li class="menu_burger__main_list_item" data-menuid="10">
+                <a href="/vorota/" class="menu_burger__link">Ворота</a>
             </li>
         </ul>
     </div>
-    <div class="menu_burger__drop menu_burger__drop__active">
-        <div class="menu_burger__drop_list">
-            <div class="menu_burger__drop_list_item">
-                <div class="menu_burger__wrap">
-                    <div class="menu_burger__first">
-                        <div class="menu_burger__first_title">
-                            <a class="menu_burger__link" href="/">ИМЯ</a>
-                        </div>
-                        <ul class="menu_burger__first_set">
-                            <li class="menu_burger__first_item">
-                                <a href="/" class="menu_burger__link">ИМЯ</a>
-                            </li>
-                            <li class="menu_burger__first_item">
-                                <a href="/" class="menu_burger__link">ИМЯ</a>
-                            </li>
-                            <li class="menu_burger__first_item">
-                                <a href="/" class="menu_burger__link">ИМЯ</a>
-                            </li>
-                            <li class="menu_burger__first_item">
-                                <a href="/" class="menu_burger__link">ИМЯ</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="menu_burger__second">
-                        <div class="menu_burger__banner">
-                            <img src="/upload/iblock/770/bm7q3cvpz149tu2nkwne7xut26qvgwk7.jpg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <button class="menu-burger__close j-close-menu-mobile hide-mobile" type="button">Закрыть меню</button>
 </div>
