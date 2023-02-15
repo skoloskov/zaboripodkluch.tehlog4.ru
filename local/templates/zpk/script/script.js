@@ -7,6 +7,7 @@ let menu_burger_drop = document.querySelector('.menu_burger__drop');
 let menu_burger_main_list = document.querySelector('.menu_burger__main_list');
 let menu_burger_backdrop = document.querySelector('.menu_burger__backdrop');
 
+
 burger_toggle.addEventListener('click', function () {
     menu_burger.classList.add('menu_burger__active');
 });
@@ -19,10 +20,24 @@ menu_burger_backdrop.addEventListener('click', function () {
     menu_burger.classList.remove('menu_burger__active');
 });
 
-menu_burger_main_list.addEventListener('mouseover', function () {
-    menu_burger_drop.classList.add('menu_burger__drop__active');
-});
-
-
-
+$(document).ready((function () {
+    $(".js-order-fence").on("click", (function () {
+        var e = $(this).closest(".js-form");
+        return $.ajax({
+            url: "/ajax/ajax_order.php",
+            type: "post",
+            cache: !1,
+            data: e.serialize()
+        })
+         .done((function (n) {
+            "ERROR" == n || ("error" == n ? e.find(".error-text").text("Вы не правильно заполнили поля!") : (console.log("lglggllg"),
+            e[0].reset(),
+            $(".error").removeClass("error"),
+            alert("Спасибо за обращение, наш специалист свяжется с Вами.")))
+        }))
+        .fail((function () {
+            alert("Ошибка, пожалуйста повторите")
+        })), !1
+    }))
+}));
 
