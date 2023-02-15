@@ -29,9 +29,10 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 );?>
 </div>
  </section>*/ ?>
-<?/* Секция Виды заборов */ ?> <?$APPLICATION->IncludeComponent(
+<?/* Секция Виды заборов */ ?>
+<?$APPLICATION->IncludeComponent(
 	"seologica:catalog.section.list",
-	"index_page_list",
+	"slider_showcase",
 	Array(
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"CACHE_FILTER" => "N",

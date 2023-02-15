@@ -41,3 +41,13 @@ $(document).ready((function () {
     }))
 }));
 
+$(document).ready(function(){
+    $('.slick-showcase').slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+    });
+});
+
+
+
