@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>-->
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 <?
 //$title = 'Завод дверей: Входные металлические двери в '.$APPLICATION->GetPageProperty('regionSettings')['UF_INCITY'].' с любым типом отделки от производителя';
 //echo '<pre>'.print_r($APPLICATION->GetPageProperty('PageSettings'), true).'</pre>';die();
@@ -79,7 +79,7 @@ $APPLICATION->SetPageProperty('description', $description);
 				<div class="footer__subtitle">Горячая линия</div>
 				<a class="footer__phone" href="tel:88003018735">8 (800) 301-87-35</a>
 				<div class="footer__block-contacts">
-					<a class="footer__mail" href="mailto:support@zaboripodkluch.ru">support@zaboripodkluch.ru</a>
+					<a class="footer__mail" href="mailto:zakaz@zaboripodkluch.ru">zakaz@zaboripodkluch.ru</a>
 					<span class="footer__time">9:00 - 18:00</span>
 					<div class="footer__block-social">
 						<span class="footer__whatsapp"></span>

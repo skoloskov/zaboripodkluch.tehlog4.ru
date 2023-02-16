@@ -61,7 +61,6 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
 							<img data-src="<? echo $arSection['PICTURE']['SRC']; ?>" alt="<? echo $arSection['NAME']; ?>" class="types-fences__img lazyload" />
 							<div class="item-desc">
 								<p class="item-desc__title"><? echo $arSection['NAME']; ?></p>
-								<span class="item-desc__price">от <?=$arSection['IPROPERTY_VALUES']['UF_PRICE']?> р/м.п.<br />от 5 дней</span>
 							</div>
 						</a>
 					</div>
