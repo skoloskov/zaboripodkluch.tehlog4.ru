@@ -6006,5 +6006,73 @@ form .smeta-form__input {
   text-align: center;
 }
 
+section.advantages {
+  padding-top: 80px;
+  padding-bottom: 30px;
+}
 
+.advantages__title {
+  font-size: 25px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 25px;
+}
 
+.advantages__description {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.advantages__infografica {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.advantages__infografica_item:before {
+  width: 55px;
+  height: 55px;
+  margin: 5px 12px 25px 0;
+  float: left;
+  content: '';
+  background: url(../img/list-advantages.png) no-repeat;
+}
+
+.advantages__infografica_item {
+  width: 23%;
+  margin: 0 4% 41px;
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.advantages__infografica_item_saving:before {
+  background-position: -110px 0;
+}
+
+.advantages__infografica_item_contractors:before {
+  background-position: -55px -55px;
+}
+
+.advantages__infografica_item_offers:before {
+  background-position: -55px 0;
+}
+
+.advantages__infografica_item_confidentiality:before {
+  background-position: 0 -55px;
+}
+
+.advantages__infografica_item_rewiew:before {
+  background-position: -110px -55px;
+}
+
+.advantages__infografica_item_title {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.advantages__infografica_item_descr {
+  font-size: 13px;
+}

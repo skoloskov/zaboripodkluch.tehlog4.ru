@@ -1,7 +1,6 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-//$APPLICATION->SetTitle("1С-Битрикс: Управление сайтом");
-?><?$APPLICATION->IncludeComponent(
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php"); ?>
+
+<?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -56,6 +55,22 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 		"VIEW_MODE" => "LINE"
 	)
 );?>
+
+<?/* Секция Инфографика преимуществ */ ?>
+<section class="advantages">
+    <div class="container">
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:main.include",
+        "",
+        Array(
+            "AREA_FILE_SHOW" => "file",
+            "AREA_FILE_SUFFIX" => "inc",
+            "EDIT_TEMPLATE" => "",
+            "PATH" => "/inc_areas/advantages.php"
+        )
+    );?>
+    </div>
+</section>
 
 <?/* Секция Подбора подрядчиков */ ?>
     <section class="parameter">
