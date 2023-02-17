@@ -264,6 +264,7 @@ $GLOBALS['arrFilter'] = ['ACTIVE' => 'Y'];//, 'PROPERTY_COMPANY' => $CompanyList
 ?> <?$APPLICATION->IncludeComponent(
 	"seologica:catalog.section",
 	"zabor_list",
+	/*"objects_pictures",*/
 	Array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
