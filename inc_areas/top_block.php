@@ -25,11 +25,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
             </div>
             <div class="hero__buttons">
                 <div class="hero__button_item">
-                    <button class="hero__button_item_button btn modal-quiz">Добавить заказ</button>
+                    <button class="hero__button_item_button btn modal-order">Добавить заказ</button>
                     <span class="hero__button_item_desc">никаких лишних звонков - мы никому <br>не показываем ваш номер</span>
                 </div>
                 <div class="hero__button_item hero__button_item_tender">
-                    <button class="hero__button_item_button btn modal-quiz">Заказ на тендер</button>
+                    <button class="hero__button_item_button btn modal-tender">Заказ на тендер</button>
                     <span class="hero__button_item_desc">изучите отзывы об исполнителях, сравните <br>их условия и цены на вашу работу</span>
                 </div>
             </div>

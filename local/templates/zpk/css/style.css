@@ -334,7 +334,7 @@ header {
 }
 
 .hero {
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 
 /* Стилизация секции Hero */
@@ -368,10 +368,10 @@ header {
 }
 
 .hero__desc {
-  width: 74%;
+  width: 78%;
   font-size: 14px;
   line-height: 26px;
-  margin-bottom: 90px;
+  margin-bottom: 50px;
 }
 
 .hero__btn {
@@ -426,13 +426,13 @@ header {
 
 .hero__button_item:before {
   content: '';
-  width: 73px;
+ /* width: 73px;
   height: 72px;
-  margin-right: 30px;
+  margin-right: 30px;*/
   display: block;
-  background-image: url(../img/sprite-how-it-works.png);
+ /* background-image: url(../img/sprite-how-it-works.png);*/
   background-position: 0 0;
-  margin: 10px auto;
+ /* margin: 10px auto;*/
 }
 
 .hero__button_item_tender:before {
@@ -448,8 +448,8 @@ header {
 .hero__buttons .hero__button_item .hero__button_item_button {
   padding: 15px 20px;
   margin: 0 auto;
-  background-color: #ff0042;
-  color: #ffffff;
+  background-color: #ff004200;
+  color: #ff0042;
 }
 
 /* Стилизация секции Виды заборов */
@@ -631,7 +631,7 @@ hr {
   flex-wrap: wrap;
   padding: 35px 40px 40px 40px;
   border: 1px solid var(--first-bg);
-  border-radius: 15px;
+  border-radius: 2px;
   box-shadow: 0px 5px 14px 0px rgba(142, 165, 26, 0.5);
   margin-bottom: 20px;
 }
@@ -1311,6 +1311,7 @@ hr {
 }
 
 .order_fence__form,
+.tender_fence__form,
 .thanks__block {
   width: 100%;
   max-width: 900px;
@@ -1364,42 +1365,50 @@ hr {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.order_fence__title {
+.order_fence__title,
+.tender_fence__title {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 15px;
   width: 100%;
 }
 
-.order_fence__second_title {
+.order_fence__second_title,
+.tender_fence__second_title{
   font-size: 18px;
 }
 
 .order_fence__order_block,
-.order_fence__user_block {
+.order_fence__user_block,
+.tender_fence__order_block,
+.tender_fence__user_block {
   width: 50%;
   padding: 20px;
 }
 
-.order_fence__desc {
+.order_fence__desc,
+.tender_fence__desc {
   font-size: 16px;
   margin-bottom: 20px;
 }
 
-.order_fence__lbl {
+.order_fence__lbl,
+.tender_fence__lbl {
   display: block;
   width: 100%;
   margin-bottom: 15px;
 }
 
-.order_fence__lbl_text {
+.order_fence__lbl_text,
+.tender_fence__lbl_text {
   font-size: 13px;
   margin-bottom: 10px;
   display: block;
   opacity: 0.5;
 }
 
-.order_fence__form .button {
+.order_fence__form .button,
+.tender_fence__form .button {
   width: 100%;
   height: 60px;
 }
@@ -1410,7 +1419,8 @@ hr {
   border: none;
 }
 
-.order_fence__form {
+.order_fence__form,
+.tender_fence__form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1428,7 +1438,7 @@ textarea {
   border: none;
   padding: 20px 30px;
   background-color: rgba(233, 242, 191, 0.3);
-  border-radius: 5px;
+  border-radius: 2px;
   height: 60px;
 }
 
@@ -1445,7 +1455,8 @@ textarea {
   cursor: pointer;
 }
 
-.order_fence__form .checkbox {
+.order_fence__form .checkbox,
+.tender_fence__form .checkbox {
   margin-bottom: 20px;
 }
 
@@ -3503,10 +3514,11 @@ form .smeta-form__input {
   }
 
   .hero__desc {
-    width: 72%;
+    width: 62%;
     font-size: 14px;
     line-height: 26px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+    margin-top: 100px;
   }
 
   .phone-block__desc {
@@ -3544,10 +3556,11 @@ form .smeta-form__input {
   }
 
   .hero__desc {
-    width: 68%;
+    width: 60%;
     font-size: 14px;
     line-height: 34px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
+    margin-top: 80px;
   }
   .comment-content__header {
     margin-bottom: 10px;
@@ -3687,7 +3700,8 @@ form .smeta-form__input {
   .hero__desc {
     font-size: 14px;
     line-height: 26px;
-    margin-bottom: 48px;
+    margin-bottom: 28px;
+    margin-top: 100px;
   }
   .hero__btn {
     width: 30%;
@@ -4140,7 +4154,7 @@ form .smeta-form__input {
     width: 56%;
     font-size: 14px;
     line-height: 26px;
-    margin-bottom: 28px;
+    margin-bottom: 0px;
   }
 
   .hero__btn {
@@ -5771,7 +5785,7 @@ form .smeta-form__input {
   display: block;
   position: relative;
   padding: 3px 5px 3px 10px;
-  border-radius: 8px;
+  border-radius: 0px;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -5997,7 +6011,7 @@ form .smeta-form__input {
   text-indent: 0;
   width: 100%;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 25px;
   line-height: 20px;
   text-align: center;
 }
@@ -6102,7 +6116,7 @@ section.advantages {
 
   .main__title {
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .hero__desc {
@@ -6272,4 +6286,54 @@ section.advantages {
     margin-top: 25px;
   }
 
+}
+
+.objects_pictures__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.objects_pictures__item {
+  max-width: 25%;
+  overflow: clip;
+  padding: 0 10px 20px;
+}
+
+.objects_pictures__item img {
+  width: 100%;
+}
+
+.objects_pictures__item_name {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 0 20px;
+  min-height: 85px;
+}
+
+.objects_pictures__item_char {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.objects_pictures__item_char span,
+.objects_pictures__item_price {
+  font-weight: 700;
+}
+
+.objects_pictures__item_count {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.objects_pictures__item_price {
+  font-size: 20px;
+}
+
+.objects_pictures__item_content {
+  box-shadow: 0px 5px 14px 0px rgba(142, 165, 26, 0.5);
+  padding: 0 10px 20px;
 }

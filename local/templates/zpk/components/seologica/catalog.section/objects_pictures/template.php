@@ -158,75 +158,69 @@ if ($USER->isAdmin()){
 	//echo '<pre>'.print_r($arResult['PROPERTIES']['SECTIONS'], true).'<pre>';
 }
 ?>
-<section class="territory">
-	<div class="container territory__container">
-		<a name="zabor_list"></a>
-		<h2 class="territory__title section__title">Фото сданных объектов</h2>
-		<select name="zabory" id="type_select" class="territory__select" onchange="select_change(this);">
-			<option value="">Все заборы</option>
-			<?foreach($arResult['PROPERTIES']['SECTIONS'] as $section){
-				//echo '<pre>'.print_r($section, true).'</pre>';die();
-				?>
-				<option value="<?=$section['CODE']?>" <?=(isset($_REQUEST['section'])&&$_REQUEST['section']==$section['CODE'])?'selected':'';?> <?if ($section['DEPTH_LEVEL']==1) echo 'style="font-weight:bold;"';?>>
-					
-					<?=str_repeat('&nbsp;&nbsp;',$section['DEPTH_LEVEL'])?><?=$section['NAME']?> (<?=(int)$section['ELEMENT_CNT']?>)
-					
-				</option>
-			<?}?>
-			
-		</select>
-		<?//echo '<pre>'.print_r($arResult['ITEMS'], true).'</pre>';die();?>
-		<ul class="objects_pictures">
-			<?foreach ($arResult['ITEMS'] as $object){
-				//echo '<pre>'.print_r($object, true).'</pre>';die();
-				
-					$objPhoto = CFile::ResizeImageGet($object["PROPERTIES"]['PHOTO']['VALUE'][0], array('width' => 800, 'height' => 600), BX_RESIZE_IMAGE_EXACT, true);
-					$stars = ceil(($object['SHOW_COUNTER']/$arResult['MAX_SHOW_COUNTER'])*10/2);
-						
-					?>
-					<li class="objects_pictures__item">
-						<a class="objects_pictures__link" href="<?=$object['DETAIL_PAGE_URL']?>">
-    						<img class="objects_pictures__item_img" src="<?=$objPhoto['src']?>">
-							<div class="objects_pictures__item-content">
-                                <div class="objects_pictures__item-title">
-                                    <?=$object['NAME']?>
-                                </div>
-                                <div class="objects_pictures__item-desc">
-                                    <div class="objects_pictures__desc-content">
-                                        <div class="objects_pictures__el_height">Высота: <?=$object['PROPERTIES']['HEIGHT']['VALUE']?> метра</div>
-                                    </div>
-                                    <div class="objects_pictures__desc-content">
-                                        <div class="objects_pictures__el_color">Длина: <?=$object['PROPERTIES']['LENGTH']['VALUE']?> метров</div>
-                                    </div>
-                                </div>
-								<div class="objects_pictures__desc-content">
-									<div class="rating" data-value="<?=$stars?>"> <span class="range__text"><?=(int)$object['SHOW_COUNTER']?></span></div>
-								</div>
-                                <div class="objects_pictures__desc-content">
-                                    <div class="objects_pictures__el_number"><?=number_format($object['PROPERTIES']['PRICE']['VALUE'],0,false,' ')?> р</div>
-                                </div>
-							</div>
-						</a>
-					</li>
+
+<section class="objects_pictures">
+    <div class="container objects_pictures__container">
+        <a name="zabor_list"></a>
+        <h2 class="tobjects_pictures__title section__title">Фото сданных объектов</h2>
+        <!-- select name="zabory" id="type_select" class="territory__select" onchange="select_change(this);">
+            <option value="">Все заборы</option>
+            <? /* foreach($arResult['PROPERTIES']['SECTIONS'] as $section){
+                //echo '<pre>'.print_r($section, true).'</pre>';die();
+                ?>
+                <option value="<?=$section['CODE']?>" <?=(isset($_REQUEST['section'])&&$_REQUEST['section']==$section['CODE'])?'selected':'';?> <?if ($section['DEPTH_LEVEL']==1) echo 'style="font-weight:bold;"';?>>
+
+                    <?=str_repeat('&nbsp;&nbsp;',$section['DEPTH_LEVEL'])?><?=$section['NAME']?> (<?=(int)$section['ELEMENT_CNT']?>)
+
+                </option>
+            <?} */?>
+        </select -->
+        <ul class="objects_pictures__list territory__list">
+            <?foreach ($arResult['ITEMS'] as $object){
+                //echo '<pre>'.print_r($object, true).'</pre>';die();
+
+                $objPhoto = CFile::ResizeImageGet($object["PROPERTIES"]['PHOTO']['VALUE'][0], array('width' => 800, 'height' => 600), BX_RESIZE_IMAGE_EXACT, true);
+                $stars = ceil(($object['SHOW_COUNTER']/$arResult['MAX_SHOW_COUNTER'])*10/2);
+
+                ?>
+                <li class="objects_pictures__item territory__item">
+                <a class="objects_pictures__link" href="<?=$object['DETAIL_PAGE_URL']?>">
+                    <!-- cards 1 -->
+                    <img src="<?=$objPhoto['src']?>">
+                    <div class="objects_pictures__item_content">
+                        <div class="objects_pictures__item_name"><?=$object['NAME']?></div>
+                        <div class="objects_pictures__item_char">
+                            <div class="objects_pictures__item_length">Длина: <span><?=$object['PROPERTIES']['LENGTH']['VALUE']?> метров</span></div>
+                            <div class="objects_pictures__item_height">Высота: <span><?=$object['PROPERTIES']['HEIGHT']['VALUE']?> метра</span></div>
+                        </div>
+                        <div class="objects_pictures__item_count">
+                            <div class="rating" data-value="<?=$stars?>"> <span class="range__text"><?=(int)$object['SHOW_COUNTER']?></span></div>
+                            <div class="objects_pictures__item_price"><?=number_format($object['PROPERTIES']['PRICE']['VALUE'],0,false,' ')?> р</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
             <? } ?>
-		</ul>
+        </ul>
 
+        <?
 
-<? /*
+        if ($showBottomPager)
+        {
+            ?>
+            <div data-pagination-num="<?=$navParams['NavNum']?>" class="show_more">
+                <!-- pagination-container -->
+                <?=$arResult['NAV_STRING']?>
+                <!-- pagination-container -->
+            </div>
+            <?
+        }
+        ?>
 
-if ($showBottomPager)
-{
-	?>
-	<div data-pagination-num="<?=$navParams['NavNum']?>" class="show_more">
-		<!-- pagination-container -->
-		<?=$arResult['NAV_STRING']?>
-		<!-- pagination-container -->
-	</div>
-	<?
-}
-*/?>
-	</div>
+    </div>
 </section>
+
+
 <?
 $signer = new \Bitrix\Main\Security\Sign\Signer;
 $signedTemplate = $signer->sign($templateName, 'catalog.section');

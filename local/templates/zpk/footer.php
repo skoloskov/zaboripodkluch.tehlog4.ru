@@ -80,7 +80,7 @@ $APPLICATION->SetPageProperty('description', $description);
 				<a class="footer__phone" href="tel:88003018735">8 (800) 301-87-35</a>
 				<div class="footer__block-contacts">
 					<a class="footer__mail" href="mailto:zakaz@zaboripodkluch.ru">zakaz@zaboripodkluch.ru</a>
-					<span class="footer__time">9:00 - 18:00</span>
+					<span class="footer__time">9:00 - 20:00</span>
 					<div class="footer__block-social">
 						<span class="footer__whatsapp"></span>
 						<span class="footer__viber"></span>
@@ -91,19 +91,19 @@ $APPLICATION->SetPageProperty('description', $description);
 	</div>
 	<div class="container footer-bottom__container">
 		<div class="author">
-			Все материалы сайта являются объектами авторского права и защищаются законом РФ.<br />
-			Запрещается любое копирование или иное использование информации без согласия правообладателя.
+			Копирование любых материалов с сайта строго запрещена и является нарушением Федерального закона УК РФ Статья 146 "Об авторском праве и смежных правах",<br />
+			ст.1259 ст.1252 так как представленная информация является интеллектуальной собственностью компании.
 		</div>
 	</div>
 </footer>
 
-<?/* Модальное окно Оформить тендер */ ?>
+<?/* Модальное окно Оформить заказ */ ?>
 <div class="order_fence popup" id="order_fence">
 	<form class="order_fence__form js-form">
 		<div class="close">
 			<span class="close_icn"></span>
 		</div>
-		<div class="order_fence__title">Оформить тендер на забор</div>
+		<div class="order_fence__title">Оформить заказ</div>
         <div class="order_fence__order_block">
             <div class="order_fence__title order_fence__second_title">Параметры забора</div>
             <label class="order_fence__lbl">
@@ -196,6 +196,107 @@ $APPLICATION->SetPageProperty('description', $description);
 	</form>
 	<div class="black"></div>
 </div>
+
+<?/* Модальное окно Оформить тендер */ ?>
+<div class="tender_fence popup" id="tender_fence">
+    <form class="tender_fence__form js-form">
+        <div class="close">
+            <span class="close_icn"></span>
+        </div>
+        <div class="tender_fence__title">Оформить тендер на забор</div>
+        <div class="tender_fence__order_block">
+            <div class="tender_fence__title tender_fence__second_title">Параметры забора</div>
+            <label class="tender_fence__lbl">
+                <span class="tender_fence__lbl_text">Вид забора:</span>
+                <select name="type_fence">
+                    <option selected>Профнастил</option>
+                    <option>Сетка-рабица</option>
+                    <option>Металоштакетник</option>
+                    <option>Поликарбонат</option>
+                    <option>Сварные</option>
+                    <option>Шумозащитные</option>
+                    <option>3D</option>
+                </select>
+            </label>
+
+            <label class="tender_fence__lbl">
+                <span class="tender_fence__lbl_text">Основание забора:</span>
+                <select name="pillars">
+                    <option selected>Забивные столбы</option>
+                    <option>Утрамбовка щебнем</option>
+                    <option>Бетонирование столбов</option>
+                    <option>Ленточный фундамент</option>
+                    <option>Кирпичные столбы</option>
+                </select>
+            </label>
+
+            <label class="tender_fence__lbl">
+                <span class="tender_fence__lbl_text">Ворота:</span>
+                <select name="gate">
+                    <option selected>Не нужны</option>
+                    <option>Откатные</option>
+                    <option>Откатные с автоматикой</option>
+                    <option>Распашные</option>
+                    <option>Распашные с автоматикой</option>
+                </select>
+            </label>
+
+            <label class="tender_fence__lbl">
+                <span class="tender_fence__lbl_text">Высота забора:</span>
+                <input type="text" name="height_fence" required placeholder="2 метра" />
+            </label>
+
+            <label class="tender_fence__lbl">
+                <span class="tender_fence__lbl_text">Длина забора:</span>
+                <input type="text" name="lenght_fence" required placeholder="200 метров" />
+            </label>
+
+            <label class="tender_fence__lbl">
+                <span class="tender_fence__lbl_text">Описание заказа:</span>
+                <textarea placeholder="Описание заказа" name="descript"></textarea>
+            </label>
+        </div>
+
+        <div class="tender_fence__user_block">
+            <div class="tender_fence__title callback__second_title">Данные клиента</div>
+
+            <label class="tender_fence__lbl">
+                <span class="tender_fence__lbl_text">Место установки:</span>
+                <input type="text" name="place_fence" required placeholder="Населенный пункт" />
+            </label>
+
+            <label class="order_fence__lbl">
+                <span class="tender_fence__lbl_text">Дата установки:</span>
+                <input type="date" name="date_fence" />
+            </label>
+
+            <label class="order_fence__lbl">
+                <span class="tender_fence__lbl_text">Введите ваше имя:</span>
+                <input type="text" name="name" placeholder="Иван" />
+            </label>
+
+            <label class="order_fence__lbl">
+                <span class="tender_fence__lbl_text">Номер телефона:</span>
+                <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" required data-validate-field="tel" data-validate-rules="phone" />
+            </label>
+
+            <label class="order_fence__lbl">
+                <span class="tender_fence__lbl_text">E-mail:</span>
+                <input type="text" name="email" placeholder="info@site.ru" />
+            </label>
+
+            <label class="checkbox checkbox__lbl">
+                <input type="checkbox" checked="" name="Согласие" />
+                <span class="tender_fence__lbl_text checkbox__lbl_text">Я согласен с
+				<a class="checkbox__link" href="/privacy/" target="_blank">политикой конфиденциальности</a>
+			</span>
+            </label>
+        </div>
+        <button class="button primary js-tender-fence">Отправить</button>
+    </form>
+    <div class="black"></div>
+</div>
+
 
 <?/* Модальное окно квиз */ ?>
 <div class="quiz__popup popup" id="quiz">

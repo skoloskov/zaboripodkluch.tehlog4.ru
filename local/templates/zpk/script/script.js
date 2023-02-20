@@ -21,10 +21,10 @@ menu_burger_backdrop.addEventListener('click', function () {
 });
 
 $(document).ready((function () {
-    $(".js-order-fence").on("click", (function () {
+    $(".js-tender-fence").on("click", (function () {
         var e = $(this).closest(".js-form");
         return $.ajax({
-            url: "/ajax/ajax_order.php",
+            url: "/ajax/ajax_tender.php",
             type: "post",
             cache: !1,
             data: e.serialize()
@@ -38,6 +38,27 @@ $(document).ready((function () {
         .fail((function () {
             alert("Ошибка, пожалуйста повторите")
         })), !1
+    }))
+}));
+
+$(document).ready((function () {
+    $(".js-order-fence").on("click", (function () {
+        var e = $(this).closest(".js-form");
+        return $.ajax({
+            url: "/ajax/ajax_order.php",
+            type: "post",
+            cache: !1,
+            data: e.serialize()
+        })
+            .done((function (n) {
+                "ERROR" == n || ("error" == n ? e.find(".error-text").text("Вы не правильно заполнили поля!") : (console.log("lglggllg"),
+                    e[0].reset(),
+                    $(".error").removeClass("error"),
+                    alert("Спасибо за обращение, наш специалист свяжется с Вами.")))
+            }))
+            .fail((function () {
+                alert("Ошибка, пожалуйста повторите")
+            })), !1
     }))
 }));
 

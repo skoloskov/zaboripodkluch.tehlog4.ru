@@ -263,8 +263,7 @@ $CompanyList = $APPLICATION->GetPageProperty('CompanyList');
 $GLOBALS['arrFilter'] = ['ACTIVE' => 'Y'];//, 'PROPERTY_COMPANY' => $CompanyList];
 ?> <?$APPLICATION->IncludeComponent(
 	"seologica:catalog.section",
-	"zabor_list",
-	/*"objects_pictures",*/
+	"objects_pictures",
 	Array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
@@ -318,7 +317,7 @@ $GLOBALS['arrFilter'] = ['ACTIVE' => 'Y'];//, 'PROPERTY_COMPANY' => $CompanyList
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => "show_more",
 		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "6",
+		"PAGE_ELEMENT_COUNT" => "12",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array(),
 		"PRICE_VAT_INCLUDE" => "Y",
