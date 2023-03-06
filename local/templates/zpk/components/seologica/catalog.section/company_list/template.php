@@ -220,7 +220,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
                         <span class="company-content__phone_text">Телефон</span>
                       </button>
 					  <a href="tel:<?= str_replace([' ', '-', '(', ')'], '', $phone); ?>" class="company-content__phone-link"><?= str_replace([' ', '-', '(', ')'], '', $phone); ?></a>
-                      <button type="button" class="company-content__order modal-quiz">
+                      <button type="button" class="company-content__order modal-order-company">
                         Предложить заказ
                       </button>
                     </div>
@@ -316,7 +316,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
                       <div class="company__slider">
                           <?
                           foreach ($item['PROPERTIES']['OBJECTS'] as $object){
-                              $img = CFile::ResizeImageGet($object['PROPERTIES']['PHOTO']['VALUE'][0], array('width'=>800, 'height'=>600), BX_RESIZE_IMAGE_EXACT , true);
+                              $img = CFile::ResizeImageGet($object['PROPERTIES']['PHOTO']['VALUE'][0], array('width'=>200, 'height'=>150), BX_RESIZE_IMAGE_EXACT , true);
                               ?>
                               <div class="slider__item">
                                   <img class="slide__img" data-lazy="<?=$img['src']?>" alt="" title="<?=$object['NAME']?>"/>

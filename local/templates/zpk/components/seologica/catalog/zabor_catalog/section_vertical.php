@@ -25,28 +25,6 @@ $APPLICATION->IncludeComponent(
 	)
 );
 
-/* открытый квиз */ ?>
-<section class="quiz-section">
-	<div class="container quiz-section__container" id="open_quiz">
-		<div class="quiz-section__header">
-			<span class="quiz-section__title">Расчет стоимости забора</span>
-			<span class="quiz-section__desc">(заполните опросник и отправьте компаниям для расчета стоимости ограждения под ключ)</span>
-		</div>
-		<?
-		$APPLICATION->IncludeComponent(
-			"bitrix:main.include",
-			"",
-			array(
-				"AREA_FILE_SHOW" => "file",
-				"AREA_FILE_SUFFIX" => "inc",
-				"EDIT_TEMPLATE" => "",
-				"PATH" => "/inc_areas/quiz.php"
-			)
-		);
-		?>
-	</div>
-</section>
-<?
 if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
 {
 	$basketAction = isset($arParams['COMMON_ADD_TO_BASKET_ACTION']) ? $arParams['COMMON_ADD_TO_BASKET_ACTION'] : '';
@@ -83,6 +61,24 @@ else
 				}
 			}
 			?>
+
+<?/* Секция Открытая форма Тендер */ ?>
+<section class="tender_form_section">
+    <div class="container">
+        <? $APPLICATION->IncludeComponent(
+            "bitrix:main.include",
+            "",
+            array(
+                "AREA_FILE_SHOW" => "file",
+                "AREA_FILE_SUFFIX" => "inc",
+                "EDIT_TEMPLATE" => "",
+                "PATH" => "/inc_areas/tender_form.php",
+                "BLOCK" => 'modal'
+            )
+        );?>
+    </div>
+</section>
+
 				
 			<?
 			$APPLICATION->IncludeComponent(

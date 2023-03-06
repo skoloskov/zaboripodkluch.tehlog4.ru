@@ -18,7 +18,7 @@
               <ul class="question1__list">
                 <li class="question1__item">
                   <label for="<?= $arParams['BLOCK'] ?>question1__radio1" class="question1__lbl">
-                    <img class="question1__img lazyload" data-src="<?= SITE_TEMPLATE_PATH; ?>/img/question_img1.png" alt="" />
+                    <img class="question1__img lazyload" data-src="<?= SITE_TEMPLATE_PATH; ?>/img/img_zakaz/profnastil.png" alt="" />
                     <div class="question1__desc">
                       <input id="<?= $arParams['BLOCK'] ?>question1__radio1" name="question1__radio" type="radio" value="Заборы из профнастила" class="question1__radio">
                       Заборы из профнастила
@@ -27,7 +27,7 @@
                 </li>
                 <li class="question1__item">
                   <label for="<?= $arParams['BLOCK'] ?>question1__radio2" class="question1__lbl">
-                    <img class="question1__img lazyload" data-src="<?= SITE_TEMPLATE_PATH; ?>/img/question_img2.png" alt="" />
+                    <img class="question1__img lazyload" data-src="<?= SITE_TEMPLATE_PATH; ?>/img/img_zakaz/shtaketnik.png" alt="" />
                     <div class="question1__desc">
                       <input id="<?= $arParams['BLOCK'] ?>question1__radio2" name="question1__radio" type="radio" value="Заборы из евроштакетника" class="question1__radio">
                       Заборы из евроштакетника
@@ -36,7 +36,7 @@
                 </li>
                 <li class="question1__item">
                   <label for="<?= $arParams['BLOCK'] ?>question1__radio3" class="question1__lbl">
-                    <img class="question1__img lazyload" data-src="<?= SITE_TEMPLATE_PATH; ?>/img/question_img3.png" alt="" />
+                    <img class="question1__img lazyload" data-src="<?= SITE_TEMPLATE_PATH; ?>/img/img_zakaz/setka_rabica.png" alt="" />
                     <div class="question1__desc">
                       <input id="<?= $arParams['BLOCK'] ?>question1__radio3" name="question1__radio" type="radio" value="Заборы из сетки рабицы" class="question1__radio">
                       Заборы из сетки рабицы
@@ -45,7 +45,7 @@
                 </li>
                 <li class="question1__item">
                   <label for="<?= $arParams['BLOCK'] ?>question1__radio4" class="question1__lbl">
-                    <img class="question1__img lazyload" data-src="<?= SITE_TEMPLATE_PATH; ?>/img/question_img4.png" alt="" />
+                    <img class="question1__img lazyload" data-src="<?= SITE_TEMPLATE_PATH; ?>/img/img_zakaz/3d.png" alt="" />
                     <div class="question1__desc">
                       <input id="<?= $arParams['BLOCK'] ?>question1__radio4" name="question1__radio" type="radio" value="3D заборы" class="question1__radio">
                       3D заборы

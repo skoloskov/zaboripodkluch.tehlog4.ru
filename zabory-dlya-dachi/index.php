@@ -25,28 +25,6 @@ $APPLICATION->IncludeComponent(
 	)
 );
 ?>
-
-<?/* открытый квиз */ ?>
-<section class="quiz-section">
-	<div class="container quiz-section__container" id="open_quiz">
-		<div class="quiz-section__header">
-			<span class="quiz-section__title">Расчет стоимости забора</span>
-			<span class="quiz-section__desc">(заполните опросник и отправьте компаниям для расчета стоимости ограждения под ключ)</span>
-		</div>
-		<?
-		$APPLICATION->IncludeComponent(
-			"bitrix:main.include",
-			"",
-			array(
-				"AREA_FILE_SHOW" => "file",
-				"AREA_FILE_SUFFIX" => "inc",
-				"EDIT_TEMPLATE" => "",
-				"PATH" => "/inc_areas/quiz.php"
-			)
-		);
-		?>
-	</div>
-</section>
 <?
 $GLOBALS['sectionsFilter']=['!ID'=>9];
 $APPLICATION->IncludeComponent("seologica:catalog.section.list", "index_page_list", Array(

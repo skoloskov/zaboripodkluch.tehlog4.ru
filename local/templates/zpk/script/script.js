@@ -20,6 +20,7 @@ menu_burger_backdrop.addEventListener('click', function () {
     menu_burger.classList.remove('menu_burger__active');
 });
 
+
 $(document).ready((function () {
     $(".js-tender-fence").on("click", (function () {
         var e = $(this).closest(".js-form");

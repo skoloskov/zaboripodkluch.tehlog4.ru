@@ -2,7 +2,8 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 ?>
 
-<h2 class="advantages__title">Портал строительных компаний по заборам и ограждениям в Вашем регионе!</h2>
+
+<h2 class="advantages__title">Портал строительных компаний по заборам и ограждениям в Москве!</h2>
 <div class="advantages__description">Поможем найти компанию или бригаду по вашим критериям выбора. Все подрядчики, зарегистрированные на нашем портале, специализируются на строительстве разных видов заборово и прошли документальную проверку.</div>
 <div class="advantages__infografica">
     <div class="advantages__infografica_item advantages__infografica_item_waiting">
