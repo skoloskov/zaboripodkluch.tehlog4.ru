@@ -32,7 +32,7 @@ if (Loader::includeModule('search'))
 {
 	$arElements = $APPLICATION->IncludeComponent(
 		"bitrix:search.page",
-		".default",
+		"tenders",
 		Array(
 			"RESTART" => $arParams["RESTART"],
 			"NO_WORD_LOGIC" => $arParams["NO_WORD_LOGIC"],

@@ -44,7 +44,7 @@ $GLOBALS['SecFilter']=['ID'=>[1,2,3,4,5,6,11,49]];
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
 		"PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
 		"PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
-		"PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
+		"PAGER_TEMPLATE" => "tenders",	// Шаблон постраничной навигации
 		"PAGER_TITLE" => "Новости",	// Название категорий
 		"PARENT_SECTION" => "",	// ID раздела
 		"PARENT_SECTION_CODE" => "",	// Код раздела

@@ -1,6 +1,14 @@
 <?php
 $arUrlRewrite=array (
-  2 => 
+  0 =>
+  array (
+    'CONDITION' => '#^/rest/#',
+    'RULE' => '',
+    'ID' => NULL,
+    'PATH' => '/bitrix/services/rest/index.php',
+    'SORT' => 100,
+    ),
+  2 =>
   array (
     'CONDITION' => '#^/company/([^/]+?)/\\??(.*)#',
     'RULE' => 'ELEMENT_CODE=$1&$2',
@@ -8,6 +16,15 @@ $arUrlRewrite=array (
     'PATH' => '/company/detail.php',
     'SORT' => 100,
   ),
+  3 =>
+  array (
+    'CONDITION' => '#^/tenders/#',
+    'RULE' => '',
+    'ID' => 'seologica:catalog',
+    'PATH' => '/tenders/index.php',
+    'SORT' => 100,
+    ),
+
   4 => 
   array (
     'CONDITION' => '#^/sitemap.xml#',
@@ -24,14 +41,7 @@ $arUrlRewrite=array (
     'PATH' => '/robots.php',
     'SORT' => 100,
   ),
-  0 => 
-  array (
-    'CONDITION' => '#^/rest/#',
-    'RULE' => '',
-    'ID' => NULL,
-    'PATH' => '/bitrix/services/rest/index.php',
-    'SORT' => 100,
-  ),
+
   6 => 
   array (
     'CONDITION' => '#^/#',

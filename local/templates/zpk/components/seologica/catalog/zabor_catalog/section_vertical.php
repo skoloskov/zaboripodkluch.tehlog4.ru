@@ -282,7 +282,7 @@ else
 					"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
 					"PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
 					"PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
-					"PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
+					"PAGER_TEMPLATE" => "tenders",	// Шаблон постраничной навигации
 					"PAGER_TITLE" => "Товары",	// Название категорий
 					"PAGE_ELEMENT_COUNT" => "18",	// Количество элементов на странице
 					"PARTIAL_PRODUCT_PROPERTIES" => "N",	// Разрешить добавлять в корзину товары, у которых заполнены не все характеристики
@@ -324,7 +324,7 @@ else
 					"USE_MAIN_ELEMENT_SECTION" => "N",	// Использовать основной раздел для показа элемента
 					"USE_PRICE_COUNT" => "N",	// Использовать вывод цен с диапазонами
 					"USE_PRODUCT_QUANTITY" => "N",	// Разрешить указание количества товара
-					"COMPONENT_TEMPLATE" => ".default"
+					"COMPONENT_TEMPLATE" => "tenders"
 				),
 				false
 			);?>

@@ -1521,7 +1521,7 @@ if (isset($arResult['PROPERTIES']['REVIEWS']) && count($arResult['PROPERTIES']['
 								<?
 								$APPLICATION->IncludeComponent(
 									'bitrix:catalog.set.constructor',
-									'.default',
+									'tenders',
 									array(
 										'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 										'IBLOCK_ID' => $arResult['OFFERS_IBLOCK'],
@@ -1551,7 +1551,7 @@ if (isset($arResult['PROPERTIES']['REVIEWS']) && count($arResult['PROPERTIES']['
 					{
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.set.constructor',
-							'.default',
+							'tenders',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -1750,7 +1750,7 @@ if (isset($arResult['PROPERTIES']['REVIEWS']) && count($arResult['PROPERTIES']['
 					{
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.brandblock',
-							'.default',
+							'tenders',
 							array(
 								'IBLOCK_TYPE' => $arParams['IBLOCK_TYPE'],
 								'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -1778,7 +1778,7 @@ if (isset($arResult['PROPERTIES']['REVIEWS']) && count($arResult['PROPERTIES']['
 				{
 					$APPLICATION->IncludeComponent(
 						'bitrix:sale.prediction.product.detail',
-						'.default',
+						'tenders',
 						array(
 							'BUTTON_ID' => $showBuyBtn ? $itemIds['BUY_LINK'] : $itemIds['ADD_BASKET_LINK'],
 							'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
@@ -1820,7 +1820,7 @@ if (isset($arResult['PROPERTIES']['REVIEWS']) && count($arResult['PROPERTIES']['
 						CBitrixComponent::includeComponentClass('bitrix:sale.products.gift');
 						$APPLICATION->IncludeComponent(
 							'bitrix:sale.products.gift',
-							'.default',
+							'tenders',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'PRODUCT_ID_VARIABLE' => $arParams['PRODUCT_ID_VARIABLE'],
@@ -1927,7 +1927,7 @@ if (isset($arResult['PROPERTIES']['REVIEWS']) && count($arResult['PROPERTIES']['
 
 						$APPLICATION->IncludeComponent(
 							'bitrix:sale.gift.main.products',
-							'.default',
+							'tenders',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'PAGE_ELEMENT_COUNT' => $arParams['GIFTS_MAIN_PRODUCT_DETAIL_PAGE_ELEMENT_COUNT'],

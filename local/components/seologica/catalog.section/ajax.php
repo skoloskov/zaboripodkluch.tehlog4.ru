@@ -21,7 +21,7 @@ if (!\Bitrix\Main\Loader::includeModule('iblock'))
 $signer = new \Bitrix\Main\Security\Sign\Signer;
 try
 {
-	$template = $signer->unsign($request->get('template') ?: '', 'catalog.section') ?: '.default';
+	$template = $signer->unsign($request->get('template') ?: '', 'catalog.section') ?: 'tenders';
 	$paramString = $signer->unsign($request->get('parameters') ?: '', 'catalog.section');
 }
 catch (\Bitrix\Main\Security\Sign\BadSignatureException $e)

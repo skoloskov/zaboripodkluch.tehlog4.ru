@@ -6448,10 +6448,6 @@ section.advantages {
   .tender_fence__order_block,
   .tender_fence__user_block {
     width: 100%;
-    padding: 15px 0;
-  }
-
-  .order_fence__title {
     text-align: center;
   }
 
