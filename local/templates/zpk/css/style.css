@@ -6620,3 +6620,44 @@ section.advantages {
   content: "\f232";
 }
 
+/* Витрина тендеров */
+.tender_list {
+  padding: 50px 0;
+}
+
+.tender_list__item {
+  margin-bottom: 20px;
+  font-weight: 700;
+  border: 1px solid var(--first-bg);
+  border-radius: 2px;
+  box-shadow: 0px 5px 14px 0px rgba(142, 165, 26, 0.5);
+  padding: 30px 10px;
+}
+
+.tender_list__item span {
+  font-weight: 400;
+}
+
+.tender_list__item_title {
+  margin-bottom: 20px;
+}
+
+.tender_list__item_title,
+.tender_list__item_description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tender_list__item_title h3 {
+  margin: 0;
+}
+
+.tender_list__item_ten_stat {
+  color: #ff0000;
+}
+
+.tender_list__item_button a {
+  color: #ffffff;
+  background-color: #0075e2;
+  padding: 10px 25px;
+}

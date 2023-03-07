@@ -159,24 +159,87 @@ $containerName = 'container-'.$navParams['NavNum'];
 <section class="section-page">
 	<div class="container section-page__container">
         <div class="tender_list">
+            <?
+                function get_lost_num($num){
+                $str_num = (string)$num;
+                $str_num_count = strlen($str_num) - 1;
+                return $str_num[$str_num_count];
+                }
+            ?>
             <? foreach ($arResult['ITEMS'] as $item)
             {
                 //echo '<pre>'.print_r($item, true).'</pre>';die();
-                $uniqueId = $item['ID'].'_'.md5($this->randString().$component->getAction());
-                $areaIds[$item['ID']] = $this->GetEditAreaId($uniqueId);
-                $this->AddEditAction($uniqueId, $item['EDIT_LINK'], $elementEdit);
-                $this->AddDeleteAction($uniqueId, $item['DELETE_LINK'], $elementDelete, $elementDeleteParams);
                 ?>
             <div class="tender_list__item">
                 <div class="tender_list__item_title">
-                    <h3><?= $item['NAME'] ?></h3>
-                    <div class="tender_list__item_articul">TN<?= $item['ID'] ?></div>
+                    <a href="<?= $item['DETAIL_PAGE_URL'] ?>"><h3><?= $item['NAME'] ?></h3></a>
+                    <div class="tender_list__item_articul"><span>артикул: </span>TN-<?= $item['ID'] ?></div>
                 </div>
                 <div class="tender_list__item_description">
-                    <div class="tender_list__item_city"><?= $item['ID'] ?></div>
-                    <div class="tender_list__item_jstat"><?= $item['ID'] ?></div>
-                    <div class="tender_list__item_make_date"><?= $item['DATE_ACTIVE_FROM'] ?></div>
-                    <div class="tender_list__item_ten_stat"><?= $item['ID'] ?></div>
+                    <div class="tender_list__item_city"><span>Населенный пункт: </span><?= $item['PROPERTIES']['PLACE_FENCE']['VALUE'] ?></div>
+                    <div class="tender_list__item_jstat"><?= $item['PROPERTIES']['CUSTOMER_TYPE']['VALUE'] ?></div>
+                    <div class="tender_list__item_make_date"><span>Время размещения: </span>
+                        <?
+                            $timeInterval = time() - strtotime($item['DATE_ACTIVE_FROM']);
+                            if ($timeInterval < 3600):
+                                $timeInterval = floor($timeInterval / 60);
+                                $timeInterval_lost_num = get_lost_num($timeInterval);
+                                if ($timeInterval_lost_num == 1 and $timeInterval_lost_num != 11) {
+                                    $timeDescr = 'минута';
+                                }
+                                elseif ($timeInterval_lost_num == 2 and $timeInterval != 12) {
+                                    $timeDescr = 'минуты';
+                                }
+                                elseif ($timeInterval_lost_num == 3 and $timeInterval != 13) {
+                                    $timeDescr = 'минуты';
+                                }
+                                elseif ($timeInterval_lost_num == 4 and $timeInterval != 14) {
+                                    $timeDescr = 'минуты';
+                                }
+                                else {
+                                    $timeDescr = 'минут';
+                                }
+                            elseif ($timeInterval < 86400):
+                                $timeInterval = floor($timeInterval / (60 * 60));
+                                $timeInterval_lost_num = get_lost_num($timeInterval);
+                                if ($timeInterval_lost_num == 1 and $timeInterval_lost_num != 11) {
+                                    $timeDescr = 'час';
+                                }
+                                elseif ($timeInterval_lost_num == 2 and $timeInterval != 12) {
+                                    $timeDescr = 'часа';
+                                }
+                                elseif ($timeInterval_lost_num == 3 and $timeInterval != 13) {
+                                    $timeDescr = 'часа';
+                                }
+                                elseif ($timeInterval_lost_num == 4 and $timeInterval != 14) {
+                                    $timeDescr = 'часа';
+                                }
+                                else {
+                                    $timeDescr = 'часов';
+                                }
+                            else:
+                                $timeInterval = floor($timeInterval / (60 * 60 *24));
+                                $timeInterval_lost_num = get_lost_num($timeInterval);
+                                if ($timeInterval_lost_num == 1 and $timeInterval_lost_num != 11) {
+                                    $timeDescr = 'день';
+                                }
+                                elseif ($timeInterval_lost_num == 2 and $timeInterval != 12) {
+                                    $timeDescr = 'дня';
+                                }
+                                elseif ($timeInterval_lost_num == 3 and $timeInterval != 13) {
+                                    $timeDescr = 'дня';
+                                }
+                                elseif ($timeInterval_lost_num == 4 and $timeInterval != 14) {
+                                    $timeDescr = 'дня';
+                                }
+                                else {
+                                    $timeDescr = 'дней';
+                                }
+                            endif;
+                            echo $timeInterval . ' ' . $timeDescr;
+                        ?>
+                    </div>
+                    <div class="tender_list__item_ten_stat"><?= $item['PROPERTIES']['STATUS']['VALUE'] ?></div>
                     <div class="tender_list__item_button">
                         <a href="<?= $item['DETAIL_PAGE_URL'] ?>">Смотреть тендер</a>
                     </div>
@@ -197,633 +260,4 @@ $containerName = 'container-'.$navParams['NavNum'];
 	</div>
 </section>
 
-<?/*
-<div class="catalog-section bx-<?=$arParams['TEMPLATE_THEME']?>" data-entity="<?=$containerName?>">
-	<?
-	if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS']))
-	{
-		$areaIds = array();
-
-		foreach ($arResult['ITEMS'] as $item)
-		{
-			$uniqueId = $item['ID'].'_'.md5($this->randString().$component->getAction());
-			$areaIds[$item['ID']] = $this->GetEditAreaId($uniqueId);
-			$this->AddEditAction($uniqueId, $item['EDIT_LINK'], $elementEdit);
-			$this->AddDeleteAction($uniqueId, $item['DELETE_LINK'], $elementDelete, $elementDeleteParams);
-		}
-		?>
-		<!-- items-container -->
-		<?
-		foreach ($arResult['ITEM_ROWS'] as $rowData)
-		{
-			$rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
-			?>
-			<div class="row <?=$rowData['CLASS']?>" data-entity="items-row">
-				<?
-				switch ($rowData['VARIANT'])
-				{
-					case 0:
-						?>
-						<div class="col-xs-12 product-item-small-card">
-							<div class="row">
-								<div class="col-xs-12 product-item-big-card">
-									<div class="row">
-										<div class="col-md-12">
-											<?
-											$item = reset($rowItems);
-											$APPLICATION->IncludeComponent(
-												'bitrix:catalog.item',
-												'',
-												array(
-													'RESULT' => array(
-														'ITEM' => $item,
-														'AREA_ID' => $areaIds[$item['ID']],
-														'TYPE' => $rowData['TYPE'],
-														'BIG_LABEL' => 'N',
-														'BIG_DISCOUNT_PERCENT' => 'N',
-														'BIG_BUTTONS' => 'N',
-														'SCALABLE' => 'N'
-													),
-													'PARAMS' => $generalParams
-														+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-												),
-												$component,
-												array('HIDE_ICONS' => 'Y')
-											);
-											?>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 1:
-						?>
-						<div class="col-xs-12 product-item-small-card">
-							<div class="row">
-								<?
-								foreach ($rowItems as $item)
-								{
-									?>
-									<div class="col-xs-6 product-item-big-card">
-										<div class="row">
-											<div class="col-md-12">
-												<?
-												$APPLICATION->IncludeComponent(
-													'bitrix:catalog.item',
-													'',
-													array(
-														'RESULT' => array(
-															'ITEM' => $item,
-															'AREA_ID' => $areaIds[$item['ID']],
-															'TYPE' => $rowData['TYPE'],
-															'BIG_LABEL' => 'N',
-															'BIG_DISCOUNT_PERCENT' => 'N',
-															'BIG_BUTTONS' => 'N',
-															'SCALABLE' => 'N'
-														),
-														'PARAMS' => $generalParams
-															+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-													),
-													$component,
-													array('HIDE_ICONS' => 'Y')
-												);
-												?>
-											</div>
-										</div>
-									</div>
-									<?
-								}
-								?>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 2:
-						?>
-						<div class="col-xs-12 product-item-small-card">
-							<div class="row">
-								<?
-								foreach ($rowItems as $item)
-								{
-									?>
-									<div class="col-sm-4 product-item-big-card">
-										<div class="row">
-											<div class="col-md-12">
-												<?
-												$APPLICATION->IncludeComponent(
-													'bitrix:catalog.item',
-													'',
-													array(
-														'RESULT' => array(
-															'ITEM' => $item,
-															'AREA_ID' => $areaIds[$item['ID']],
-															'TYPE' => $rowData['TYPE'],
-															'BIG_LABEL' => 'N',
-															'BIG_DISCOUNT_PERCENT' => 'N',
-															'BIG_BUTTONS' => 'Y',
-															'SCALABLE' => 'N'
-														),
-														'PARAMS' => $generalParams
-															+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-													),
-													$component,
-													array('HIDE_ICONS' => 'Y')
-												);
-												?>
-											</div>
-										</div>
-									</div>
-									<?
-								}
-								?>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 3:
-						?>
-						<div class="col-xs-12 product-item-small-card">
-							<div class="row">
-								<?
-								foreach ($rowItems as $item)
-								{
-									?>
-									<div class="col-xs-6 col-md-3">
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'',
-											array(
-												'RESULT' => array(
-													'ITEM' => $item,
-													'AREA_ID' => $areaIds[$item['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									</div>
-									<?
-								}
-								?>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 4:
-						$rowItemsCount = count($rowItems);
-						?>
-						<div class="col-sm-6 product-item-big-card">
-							<div class="row">
-								<div class="col-md-12">
-									<?
-									$item = array_shift($rowItems);
-									$APPLICATION->IncludeComponent(
-										'bitrix:catalog.item',
-										'',
-										array(
-											'RESULT' => array(
-												'ITEM' => $item,
-												'AREA_ID' => $areaIds[$item['ID']],
-												'TYPE' => $rowData['TYPE'],
-												'BIG_LABEL' => 'N',
-												'BIG_DISCOUNT_PERCENT' => 'N',
-												'BIG_BUTTONS' => 'Y',
-												'SCALABLE' => 'Y'
-											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-										),
-										$component,
-										array('HIDE_ICONS' => 'Y')
-									);
-									unset($item);
-									?>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 product-item-small-card">
-							<div class="row">
-								<?
-								for ($i = 0; $i < $rowItemsCount - 1; $i++)
-								{
-									?>
-									<div class="col-xs-6">
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'',
-											array(
-												'RESULT' => array(
-													'ITEM' => $rowItems[$i],
-													'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									</div>
-									<?
-								}
-								?>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 5:
-						$rowItemsCount = count($rowItems);
-						?>
-						<div class="col-sm-6 product-item-small-card">
-							<div class="row">
-								<?
-								for ($i = 0; $i < $rowItemsCount - 1; $i++)
-								{
-									?>
-									<div class="col-xs-6">
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'',
-											array(
-												'RESULT' => array(
-													'ITEM' => $rowItems[$i],
-													'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									</div>
-									<?
-								}
-								?>
-							</div>
-						</div>
-						<div class="col-sm-6 product-item-big-card">
-							<div class="row">
-								<div class="col-md-12">
-									<?
-									$item = end($rowItems);
-									$APPLICATION->IncludeComponent(
-										'bitrix:catalog.item',
-										'',
-										array(
-											'RESULT' => array(
-												'ITEM' => $item,
-												'AREA_ID' => $areaIds[$item['ID']],
-												'TYPE' => $rowData['TYPE'],
-												'BIG_LABEL' => 'N',
-												'BIG_DISCOUNT_PERCENT' => 'N',
-												'BIG_BUTTONS' => 'Y',
-												'SCALABLE' => 'Y'
-											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-										),
-										$component,
-										array('HIDE_ICONS' => 'Y')
-									);
-									unset($item);
-									?>
-								</div>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 6:
-						?>
-						<div class="col-xs-12 product-item-small-card">
-							<div class="row">
-								<?
-								foreach ($rowItems as $item)
-								{
-									?>
-									<div class="col-xs-6 col-sm-4 col-md-2">
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'',
-											array(
-												'RESULT' => array(
-													'ITEM' => $item,
-													'AREA_ID' => $areaIds[$item['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									</div>
-									<?
-								}
-								?>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 7:
-						$rowItemsCount = count($rowItems);
-						?>
-						<div class="col-sm-6 product-item-big-card">
-							<div class="row">
-								<div class="col-md-12">
-									<?
-									$item = array_shift($rowItems);
-									$APPLICATION->IncludeComponent(
-										'bitrix:catalog.item',
-										'',
-										array(
-											'RESULT' => array(
-												'ITEM' => $item,
-												'AREA_ID' => $areaIds[$item['ID']],
-												'TYPE' => $rowData['TYPE'],
-												'BIG_LABEL' => 'N',
-												'BIG_DISCOUNT_PERCENT' => 'N',
-												'BIG_BUTTONS' => 'Y',
-												'SCALABLE' => 'Y'
-											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-										),
-										$component,
-										array('HIDE_ICONS' => 'Y')
-									);
-									unset($item);
-									?>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 product-item-small-card">
-							<div class="row">
-								<?
-								for ($i = 0; $i < $rowItemsCount - 1; $i++)
-								{
-									?>
-									<div class="col-xs-6 col-md-4">
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'',
-											array(
-												'RESULT' => array(
-													'ITEM' => $rowItems[$i],
-													'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									</div>
-									<?
-								}
-								?>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 8:
-						$rowItemsCount = count($rowItems);
-						?>
-						<div class="col-sm-6 product-item-small-card">
-							<div class="row">
-								<?
-								for ($i = 0; $i < $rowItemsCount - 1; $i++)
-								{
-									?>
-									<div class="col-xs-6 col-md-4">
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'',
-											array(
-												'RESULT' => array(
-													'ITEM' => $rowItems[$i],
-													'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									</div>
-									<?
-								}
-								?>
-							</div>
-						</div>
-						<div class="col-sm-6 product-item-big-card">
-							<div class="row">
-								<div class="col-md-12">
-									<?
-									$item = end($rowItems);
-									$APPLICATION->IncludeComponent(
-										'bitrix:catalog.item',
-										'',
-										array(
-											'RESULT' => array(
-												'ITEM' => $item,
-												'AREA_ID' => $areaIds[$item['ID']],
-												'TYPE' => $rowData['TYPE'],
-												'BIG_LABEL' => 'N',
-												'BIG_DISCOUNT_PERCENT' => 'N',
-												'BIG_BUTTONS' => 'Y',
-												'SCALABLE' => 'Y'
-											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-										),
-										$component,
-										array('HIDE_ICONS' => 'Y')
-									);
-									unset($item);
-									?>
-								</div>
-							</div>
-						</div>
-						<?
-						break;
-
-					case 9:
-						?>
-						<div class="col-xs-12">
-							<div class="row">
-								<?
-								foreach ($rowItems as $item)
-								{
-									?>
-									<div class="col-xs-12 product-item-line-card">
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'',
-											array(
-												'RESULT' => array(
-													'ITEM' => $item,
-													'AREA_ID' => $areaIds[$item['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									</div>
-									<?
-								}
-								?>
-
-							</div>
-						</div>
-						<?
-						break;
-				}
-				?>
-			</div>
-			<?
-		}
-		unset($generalParams, $rowItems);
-		?>
-		<!-- items-container -->
-		<?
-	}
-	else
-	{
-		// load css for bigData/deferred load
-		$APPLICATION->IncludeComponent(
-			'bitrix:catalog.item',
-			'',
-			array(),
-			$component,
-			array('HIDE_ICONS' => 'Y')
-		);
-	}
-	?>
-</div>
-<?
-if ($showLazyLoad)
-{
-	?>
-	<div class="row bx-<?=$arParams['TEMPLATE_THEME']?>">
-		<div class="btn btn-default btn-lg center-block" style="margin: 15px;"
-			data-use="show-more-<?=$navParams['NavNum']?>">
-			<?=$arParams['MESS_BTN_LAZY_LOAD']?>
-		</div>
-	</div>
-	<?
-}
-
-if ($showBottomPager)
-{
-	?>
-	<div data-pagination-num="<?=$navParams['NavNum']?>">
-		<!-- pagination-container -->
-		<?=$arResult['NAV_STRING']?>
-		<!-- pagination-container -->
-	</div>
-	<?
-}
-
-$signer = new \Bitrix\Main\Security\Sign\Signer;
-$signedTemplate = $signer->sign($templateName, 'catalog.section');
-$signedParams = $signer->sign(base64_encode(serialize($arResult['ORIGINAL_PARAMETERS'])), 'catalog.section');
-?>
-<script>
-	BX.message({
-		BTN_MESSAGE_BASKET_REDIRECT: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_BASKET_REDIRECT')?>',
-		BASKET_URL: '<?=$arParams['BASKET_URL']?>',
-		ADD_TO_BASKET_OK: '<?=GetMessageJS('ADD_TO_BASKET_OK')?>',
-		TITLE_ERROR: '<?=GetMessageJS('CT_BCS_CATALOG_TITLE_ERROR')?>',
-		TITLE_BASKET_PROPS: '<?=GetMessageJS('CT_BCS_CATALOG_TITLE_BASKET_PROPS')?>',
-		TITLE_SUCCESSFUL: '<?=GetMessageJS('ADD_TO_BASKET_OK')?>',
-		BASKET_UNKNOWN_ERROR: '<?=GetMessageJS('CT_BCS_CATALOG_BASKET_UNKNOWN_ERROR')?>',
-		BTN_MESSAGE_SEND_PROPS: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_SEND_PROPS')?>',
-		BTN_MESSAGE_CLOSE: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_CLOSE')?>',
-		BTN_MESSAGE_CLOSE_POPUP: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_CLOSE_POPUP')?>',
-		COMPARE_MESSAGE_OK: '<?=GetMessageJS('CT_BCS_CATALOG_MESS_COMPARE_OK')?>',
-		COMPARE_UNKNOWN_ERROR: '<?=GetMessageJS('CT_BCS_CATALOG_MESS_COMPARE_UNKNOWN_ERROR')?>',
-		COMPARE_TITLE: '<?=GetMessageJS('CT_BCS_CATALOG_MESS_COMPARE_TITLE')?>',
-		PRICE_TOTAL_PREFIX: '<?=GetMessageJS('CT_BCS_CATALOG_PRICE_TOTAL_PREFIX')?>',
-		RELATIVE_QUANTITY_MANY: '<?=CUtil::JSEscape($arParams['MESS_RELATIVE_QUANTITY_MANY'])?>',
-		RELATIVE_QUANTITY_FEW: '<?=CUtil::JSEscape($arParams['MESS_RELATIVE_QUANTITY_FEW'])?>',
-		BTN_MESSAGE_COMPARE_REDIRECT: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_COMPARE_REDIRECT')?>',
-		BTN_MESSAGE_LAZY_LOAD: '<?=CUtil::JSEscape($arParams['MESS_BTN_LAZY_LOAD'])?>',
-		BTN_MESSAGE_LAZY_LOAD_WAITER: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_LAZY_LOAD_WAITER')?>',
-		SITE_ID: '<?=CUtil::JSEscape($component->getSiteId())?>'
-	});
-	var <?=$obName?> = new JCCatalogSectionComponent({
-		siteId: '<?=CUtil::JSEscape($component->getSiteId())?>',
-		componentPath: '<?=CUtil::JSEscape($componentPath)?>',
-		navParams: <?=CUtil::PhpToJSObject($navParams)?>,
-		deferredLoad: false, // enable it for deferred load
-		initiallyShowHeader: '<?=!empty($arResult['ITEM_ROWS'])?>',
-		bigData: <?=CUtil::PhpToJSObject($arResult['BIG_DATA'])?>,
-		lazyLoad: !!'<?=$showLazyLoad?>',
-		loadOnScroll: !!'<?=($arParams['LOAD_ON_SCROLL'] === 'Y')?>',
-		template: '<?=CUtil::JSEscape($signedTemplate)?>',
-		ajaxId: '<?=CUtil::JSEscape($arParams['AJAX_ID'])?>',
-		parameters: '<?=CUtil::JSEscape($signedParams)?>',
-		container: '<?=$containerName?>'
-	});
-</script>
 <!-- component-end -->
