@@ -69,7 +69,7 @@ switch ($pillars) {
         break;
 }
 
-//Формируем вид воро для названия
+//Формируем вид ворот для названия
 $gate_text = false;
 $gate = $_POST['gate'];
 switch ($gate) {
@@ -90,6 +90,11 @@ switch ($gate) {
         break;
 }
 
+//Переделываем форма даты
+$date_work = explod('-', $_POST['date_fence']);
+$format_date = $date_work[2] . '.' . $date_work[1] . '.' . $date_work[0];
+
+
 //Формируем название элемента
 $elementName = $type_fence_text . ' ' . $pillars_text . ' ' . $gate_text . ' высотой ' . $_POST['height_fence'] . 'м длиной ' . $_POST['length_fence'] . 'м';
 
@@ -99,7 +104,7 @@ $PROP = array();
 $PROP['TYPE_FENCE'] = $type_fence; //Вид забора
 $PROP['PILLARS'] = $pillars; //Тип основания
 $PROP['GATE'] = $gate; //Ворота
-//$PROP['DATE_FENCE'] = $_POST['date_fence']; //Дата установки
+//$PROP['DATE_FENCE'] = $format_date; //Дата установки
 $PROP['HEIGHT_FENCE'] = htmlspecialchars($_POST['height_fence']); //Высота
 $PROP['LENGTH_FENCE'] = htmlspecialchars($_POST['length_fence']); //Длина
 $PROP['NAME'] = strip_tags($_POST['name']); //Имя клиента

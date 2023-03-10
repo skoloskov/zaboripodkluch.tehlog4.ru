@@ -16,16 +16,7 @@ $arUrlRewrite=array (
     'PATH' => '/company/detail.php',
     'SORT' => 100,
   ),
-  3 =>
-  array (
-    'CONDITION' => '#^/tenders/#',
-    'RULE' => '',
-    'ID' => 'seologica:catalog',
-    'PATH' => '/tenders/index.php',
-    'SORT' => 100,
-    ),
-
-  4 => 
+  4 =>
   array (
     'CONDITION' => '#^/sitemap.xml#',
     'RULE' => '',
@@ -41,8 +32,15 @@ $arUrlRewrite=array (
     'PATH' => '/robots.php',
     'SORT' => 100,
   ),
-
-  6 => 
+  3 =>
+  array (
+    'CONDITION' => '#^/tenders/#',
+    'RULE' => '',
+    'ID' => 'seologica:catalog',
+    'PATH' => '/tenders/index.php',
+    'SORT' => 100,
+    ),
+  6 =>
   array (
     'CONDITION' => '#^/#',
     'RULE' => '',

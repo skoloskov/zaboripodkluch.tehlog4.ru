@@ -19,11 +19,19 @@ else
 {
     $basketAction = isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '';
 }
-
 ?>
 
+<?/* Секция Тендеры клиентов */ ?>
 <section class="parameter">
     <div class="container parameter__container">
+        <h1 class="parameter__title section__title">
+            <?
+            $rsSections = CIBlockSection::GetList(array(),array('IBLOCK_ID' => $arParams ['IBLOCK_ID'], '=CODE' => $arResult['VARIABLES']['SECTION_CODE']));
+            if ($arSection = $rsSections->Fetch())
+            {
+                echo 'Заявки на ' . mb_strtolower($arSection['NAME']) . ' в ' . $APPLICATION->GetPageProperty('regionSettings')['UF_INCITY'];
+            }?>
+        </h1>
         <?$APPLICATION->IncludeComponent(
             "seologica:catalog.section",
             "tenders_list",
@@ -32,7 +40,7 @@ else
                 "ADD_PICT_PROP" => "-",
                 "ADD_PROPERTIES_TO_BASKET" => "Y",
                 "ADD_SECTIONS_CHAIN" => "N",
-                "AJAX_MODE" => "Y",
+                "AJAX_MODE" => "N",
                 "AJAX_OPTION_ADDITIONAL" => "",
                 "AJAX_OPTION_HISTORY" => "N",
                 "AJAX_OPTION_JUMP" => "N",
@@ -46,7 +54,7 @@ else
                 "CACHE_TYPE" => "A",
                 "COMPATIBLE_MODE" => "Y",
                 "COMPONENT_TEMPLATE" => "tenders_list",
-                "DETAIL_URL" => "/#SECTION_CODE#/#ELEMENT_CODE#/",
+                "DETAIL_URL" => "",
                 "DISABLE_INIT_JS_IN_COMPONENT" => "N",
                 "DISPLAY_BOTTOM_PAGER" => "Y",
                 "DISPLAY_COMPARE" => "N",
@@ -96,21 +104,22 @@ else
                 "PRODUCT_PROPS_VARIABLE" => "prop",
                 "PRODUCT_QUANTITY_VARIABLE" => "quantity",
                 "PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
-                "PROPERTY_CODE_MOBILE" => "",
+                "PROPERTY_CODE_MOBILE" => array(
+                ),
                 "RCM_PROD_ID" => $_REQUEST["PRODUCT_ID"],
                 "RCM_TYPE" => "personal",
                 "SECTION_CODE" => "",
                 "SECTION_ID" => $_REQUEST["SECTION_ID"],
                 "SECTION_ID_VARIABLE" => "SECTION_ID",
-                "SECTION_URL" => "#SECTION_CODE#/",
+                "SECTION_URL" => "",
                 "SECTION_USER_FIELDS" => array(
                     0 => "",
                     1 => "",
                 ),
-                "SEF_MODE" => "Y",
+                "SEF_MODE" => "N",
                 "SET_BROWSER_TITLE" => "N",
                 "SET_LAST_MODIFIED" => "N",
-                "SET_META_DESCRIPTION" => "Y",
+                "SET_META_DESCRIPTION" => "N",
                 "SET_META_KEYWORDS" => "N",
                 "SET_STATUS_404" => "N",
                 "SET_TITLE" => "N",
@@ -138,3 +147,4 @@ else
         );?>
     </div>
 </section>
+

@@ -4,9 +4,9 @@ $APPLICATION->SetTitle("Тендеры клиентов");
 ?>
 
 <?$APPLICATION->IncludeComponent(
-	"seologica:catalog",
-	"tenders",
-	Array(
+	"seologica:catalog", 
+	"tenders", 
+	array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_PICT_PROP" => "-",
@@ -28,7 +28,10 @@ $APPLICATION->SetTitle("Тендеры клиентов");
 		"DETAIL_BRAND_USE" => "N",
 		"DETAIL_BROWSER_TITLE" => "-",
 		"DETAIL_CHECK_SECTION_ID_VARIABLE" => "N",
-		"DETAIL_DETAIL_PICTURE_MODE" => array("POPUP","MAGNIFIER"),
+		"DETAIL_DETAIL_PICTURE_MODE" => array(
+			0 => "POPUP",
+			1 => "MAGNIFIER",
+		),
 		"DETAIL_DISPLAY_NAME" => "Y",
 		"DETAIL_DISPLAY_PREVIEW_TEXT_MODE" => "E",
 		"DETAIL_IMAGE_RESOLUTION" => "16by9",
@@ -57,8 +60,15 @@ $APPLICATION->SetTitle("Тендеры клиентов");
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"INSTANT_RELOAD" => "N",
-		"LABEL_PROP" => array("CUSTOMER_TYPE","STATUS","TYPE_FENCE","PILLARS","GATE"),
-		"LABEL_PROP_MOBILE" => array(),
+		"LABEL_PROP" => array(
+			0 => "CUSTOMER_TYPE",
+			1 => "STATUS",
+			2 => "TYPE_FENCE",
+			3 => "PILLARS",
+			4 => "GATE",
+		),
+		"LABEL_PROP_MOBILE" => array(
+		),
 		"LABEL_PROP_POSITION" => "top-left",
 		"LAZY_LOAD" => "N",
 		"LINE_ELEMENT_COUNT" => "3",
@@ -93,7 +103,8 @@ $APPLICATION->SetTitle("Тендеры клиентов");
 		"PAGER_TITLE" => "Товары",
 		"PAGE_ELEMENT_COUNT" => "30",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
-		"PRICE_CODE" => array(),
+		"PRICE_CODE" => array(
+		),
 		"PRICE_VAT_INCLUDE" => "N",
 		"PRICE_VAT_SHOW_VALUE" => "N",
 		"PRODUCT_ID_VARIABLE" => "id",
@@ -113,13 +124,6 @@ $APPLICATION->SetTitle("Тендеры клиентов");
 		"SECTION_TOP_DEPTH" => "2",
 		"SEF_FOLDER" => "/tenders/",
 		"SEF_MODE" => "Y",
-		"SEF_URL_TEMPLATES" => Array(
-			"sections" => "",
-			"section" => "#SECTION_CODE_PATH#/",
-			"element" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
-			"compare" => "compare.php?action=#ACTION_CODE#",
-			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
-		),
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "Y",
@@ -156,7 +160,26 @@ $APPLICATION->SetTitle("Тендеры клиентов");
 		"USE_MAIN_ELEMENT_SECTION" => "Y",
 		"USE_PRICE_COUNT" => "N",
 		"USE_PRODUCT_QUANTITY" => "N",
-		"USE_STORE" => "N"
-	)
+		"USE_STORE" => "N",
+		"COMPONENT_TEMPLATE" => "tenders",
+		"USE_DOMENS_FOR_CACHE" => $_SERVER["HTTP_HOST"],
+		"LIST_PROPERTY_CODE_MOBILE" => array(
+		),
+		"DETAIL_MAIN_BLOCK_PROPERTY_CODE" => array(
+		),
+		"SEF_URL_TEMPLATES" => array(
+			"sections" => "",
+			"section" => "#SECTION_CODE_PATH#/",
+			"element" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+			"compare" => "compare.php?action=#ACTION_CODE#",
+			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
+		),
+		"VARIABLE_ALIASES" => array(
+			"compare" => array(
+				"ACTION_CODE" => "action",
+			),
+		)
+	),
+	false
 );?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -6661,3 +6661,78 @@ section.advantages {
   background-color: #0075e2;
   padding: 10px 25px;
 }
+
+/* Страница тендера */
+.tender_detail_title_container {
+  display: flex;
+  padding: 20px 0;
+}
+
+.tender_detail_title_container h1 {
+  margin: 0;
+}
+
+.tender_detail_title_container span {
+  text-align: center;
+}
+
+.tender_detail_title_container .tender_detail_status {
+  padding: 15px 25px;
+  color: #fff;
+  font-weight: 700;
+  height: 100%;
+  align-self: center;
+  white-space: nowrap;
+}
+
+.tender_detail_title_container .tender_detail_status_waiting {
+  background-color: var(--bd-hero-btn);
+}
+
+.tender_detail_title_container .tender_detail_status_taken {
+  background-color: #d2a200;
+}
+
+.tender_detail_title_container .tender_detail_status_completed {
+  background-color: #2F783D;
+}
+
+
+.tender_detail_features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #b3cd34;
+}
+
+.tender_detail_features div {
+  margin: 0 auto;
+}
+
+.tender_detail_features li {
+  margin-bottom: 15px;
+}
+
+.tender_detail_features li > span {
+  font-weight: 700;
+}
+
+.tender_detail_description {
+  padding: 20px 0;
+  border-bottom: 2px solid #b3cd34;
+}
+
+.tender_detail_description p {
+  text-indent: 0;
+}
+
+.tender_detail_button {
+  border: 3px solid var(--bd-hero-btn);
+  color: var(--bd-hero-btn);
+  margin: 30px auto;
+  display: block;
+  width: 250px;
+  padding: 20px 15px;
+  text-align: center;
+}
