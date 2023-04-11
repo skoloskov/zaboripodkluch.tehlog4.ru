@@ -8,35 +8,38 @@
         <label class="tender_fence__lbl">
             <select name="type_fence">
                 <option value="#" selected>Выберите тип забора</option>
-                <option value="114">Профнастил</option>
-                <option value="115">Сетка-рабица</option>
-                <option value="116">Металоштакетник</option>
-                <option value="117">Поликарбонат</option>
-                <option value="118">Сварные</option>
-                <option value="119">Шумозащитные</option>
-                <option value="120">3D</option>
+                <option value="623">Помощь в выборе</option>
+                <option value="108">Профнастил</option>
+                <option value="109">Сетка-рабица</option>
+                <option value="110">Металоштакетник</option>
+                <option value="111">Поликарбонат</option>
+                <option value="112">Сварные</option>
+                <option value="113">Шумозащитные</option>
+                <option value="114">3D</option>
             </select>
         </label>
 
         <label class="tender_fence__lbl">
             <select name="pillars">
                 <option value="#" selected>Выберите основание забора</option>
-                <option value="121">Забивные столбы</option>
-                <option value="122">Утрамбовка щебнем</option>
-                <option value="123">Бетонирование столбов</option>
-                <option value="124">Ленточный фундамент</option>
-                <option value="125">Кирпичные столбы</option>
+                <option value="624">Помощь в выборе</option>
+                <option value="115">Забивные столбы</option>
+                <option value="116">Утрамбовка щебнем</option>
+                <option value="117">Бетонирование столбов</option>
+                <option value="118">Ленточный фундамент</option>
+                <option value="119">Кирпичные столбы</option>
             </select>
         </label>
 
         <label class="tender_fence__lbl">
             <select name="gate">
                 <option value="#" selected>Выберите ворота</option>
-                <option value="126">Не нужны</option>
-                <option value="127">Откатные</option>
-                <option value="128">Откатные с автоматикой</option>
-                <option value="129">Распашные</option>
-                <option value="130">Распашные с автоматикой</option>
+                <option value="120">Не нужны</option>
+                <option value="625">Помощь в выборе</option>
+                <option value="121">Откатные</option>
+                <option value="122">Откатные с автоматикой</option>
+                <option value="123">Распашные</option>
+                <option value="124">Распашные с автоматикой</option>
             </select>
         </label>
 
@@ -74,8 +77,8 @@
 
         <label class="order_fence__lbl">
             <span class="tender_fence__lbl_text">Статус заказчика:</span>
-            <span class="order_fence__radio"><input type="radio" name="customer_type" checked value="112">Физ. лицо</span>
-            <span class="order_fence__radio"><input type="radio" name="customer_type" value="113">Юр. лицо</span>
+            <span class="order_fence__radio"><input type="radio" name="customer_type" checked value="103">Физ. лицо</span>
+            <span class="order_fence__radio"><input type="radio" name="customer_type" value="104">Юр. лицо</span>
         </label>
 
         <label class="order_fence__lbl">

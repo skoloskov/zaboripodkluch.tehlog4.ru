@@ -32,7 +32,7 @@ if (Loader::includeModule('search'))
 {
 	$arElements = $APPLICATION->IncludeComponent(
 		"bitrix:search.page",
-		"tenders",
+		".default",
 		Array(
 			"RESTART" => $arParams["RESTART"],
 			"NO_WORD_LOGIC" => $arParams["NO_WORD_LOGIC"],
@@ -202,7 +202,7 @@ if (!empty($searchFilter) && is_array($searchFilter))
 
 	$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section",
-		"tenders",
+		".default",
 		$componentParams,
 		$arResult["THEME_COMPONENT"],
 		array('HIDE_ICONS' => 'Y')

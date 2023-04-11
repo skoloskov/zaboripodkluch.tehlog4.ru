@@ -47,6 +47,24 @@ else
 					}
 				}
 				?>
+
+                <?/* Секция Открытая форма Тендер */ ?>
+                    <section class="tender_form_section">
+                        <div class="container">
+                            <? $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/inc_areas/tender_form.php",
+                                    "BLOCK" => 'modal'
+                                )
+                            );?>
+                        </div>
+                    </section>
+
 				<section class="section-page">
 					<div class="container section-page__container">
 				<?

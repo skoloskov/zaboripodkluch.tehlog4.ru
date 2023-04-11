@@ -148,7 +148,7 @@ $arrContextOptions=array(
 				//die();
 			}
 			else{ // для главной страницы
-				$top_img = '/local/templates/zpk/img/hero__bg.png';
+				$top_img = '/domens-admin/glavnaya_turbo.png';
 				$price_img = '';
 				$table_price = '';
 			}

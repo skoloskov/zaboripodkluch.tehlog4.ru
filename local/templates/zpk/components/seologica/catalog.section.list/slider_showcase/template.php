@@ -50,15 +50,16 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
 	<section class="types-fences">
 		<div class="container types-fences__container">
 			<h2 class="types-fences__title section__title">Популярные виды заборов</h2>
-			<div class="slider_fences__list slick-showcase">
+			<div class="fences__list">
 				<?
-				foreach ($arResult['SECTIONS'] as &$arSection) {
+				foreach ($arResult['SECTIONS'] as $arSection) {
 					$this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], $strSectionEdit);
 					$this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
+                    $arSectionImg = CFile::ResizeImageGet($arSection['PICTURE']['SRC'], array('width'=>200, 'height'=>150), BX_RESIZE_IMAGE_EXACT , true);
 				?>
 					<div class="slider_fences__item">
 						<a href="<? echo $arSection["SECTION_PAGE_URL"]; ?>" class="types-fences__link">
-							<img data-src="<? echo $arSection['PICTURE']['SRC']; ?>" alt="<? echo $arSection['NAME']; ?>" class="types-fences__img lazyload" />
+							<img src="<?=$arSection['PICTURE']['SRC']?>" alt="<? echo $arSection['NAME']; ?>" class="types-fences__img lazyload" />
 							<div class="item-desc">
 								<p class="item-desc__title"><? echo $arSection['NAME']; ?></p>
 							</div>

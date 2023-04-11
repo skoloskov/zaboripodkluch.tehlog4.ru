@@ -10,7 +10,10 @@ Array()
 );?>
 </div>
  </section>
+
+
 <?
+
 	//$GLOBALS['ArrFilter']=['PROPERTY_COMPANY'=>$APPLICATION->GetPageProperty('CompanyList')];
 ?>
 	  <?$APPLICATION->IncludeComponent(
@@ -22,9 +25,9 @@ Array()
 		"ADD_PICT_PROP" => "-",
 		"ADD_PROPERTIES_TO_BASKET" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
-		"AJAX_MODE" => "N",
+		"AJAX_MODE" => "Y",
 		"AJAX_OPTION_ADDITIONAL" => "",
-		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_HISTORY" => "Y",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
 		"BASKET_URL" => "/personal/basket.php",
@@ -81,7 +84,7 @@ Array()
 		"IBLOCK_ID" => "3",
 		"IBLOCK_TYPE" => "objects",
 		"INCLUDE_SUBSECTIONS" => "Y",
-		"INSTANT_RELOAD" => "N",
+		"INSTANT_RELOAD" => "Y",
 		"LABEL_PROP" => array(
 		),
 		"LAZY_LOAD" => "N",
@@ -191,4 +194,8 @@ Array()
 		)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+
+
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -37,7 +37,7 @@ $APPLICATION->SetTitle("404");
 				"TOP_DEPTH" => "2",	// Максимальная отображаемая глубина разделов
 				"USE_DOMENS_FOR_CACHE" => $_SERVER["HTTP_HOST"],	// Домен кеширования (по умолчанию '={$_SERVER["HTTP_HOST"]}')
 				"VIEW_MODE" => "LINE",	// Вид списка подразделов
-				"COMPONENT_TEMPLATE" => "tenders"
+				"COMPONENT_TEMPLATE" => ".default"
 			),
 			false
 		);?>

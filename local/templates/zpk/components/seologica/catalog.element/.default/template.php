@@ -20,84 +20,84 @@ $templateLibrary = array('popup', 'fx');
 $currencyList = '';
 
 if (!empty($arResult['CURRENCIES'])) {
-    $templateLibrary[] = 'currency';
-    $currencyList = CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true);
+	$templateLibrary[] = 'currency';
+	$currencyList = CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true);
 }
 
 $templateData = array(
-    'TEMPLATE_THEME' => $arParams['TEMPLATE_THEME'],
-    'TEMPLATE_LIBRARY' => $templateLibrary,
-    'CURRENCIES' => $currencyList,
-    'ITEM' => array(
-        'ID' => $arResult['ID'],
-        'IBLOCK_ID' => $arResult['IBLOCK_ID'],
-        'OFFERS_SELECTED' => $arResult['OFFERS_SELECTED'],
-        'JS_OFFERS' => $arResult['JS_OFFERS']
-    )
+	'TEMPLATE_THEME' => $arParams['TEMPLATE_THEME'],
+	'TEMPLATE_LIBRARY' => $templateLibrary,
+	'CURRENCIES' => $currencyList,
+	'ITEM' => array(
+		'ID' => $arResult['ID'],
+		'IBLOCK_ID' => $arResult['IBLOCK_ID'],
+		'OFFERS_SELECTED' => $arResult['OFFERS_SELECTED'],
+		'JS_OFFERS' => $arResult['JS_OFFERS']
+	)
 );
 unset($currencyList, $templateLibrary);
 
 $mainId = $this->GetEditAreaId($arResult['ID']);
 $itemIds = array(
-    'ID' => $mainId,
-    'DISCOUNT_PERCENT_ID' => $mainId . '_dsc_pict',
-    'STICKER_ID' => $mainId . '_sticker',
-    'BIG_SLIDER_ID' => $mainId . '_big_slider',
-    'BIG_IMG_CONT_ID' => $mainId . '_bigimg_cont',
-    'SLIDER_CONT_ID' => $mainId . '_slider_cont',
-    'OLD_PRICE_ID' => $mainId . '_old_price',
-    'PRICE_ID' => $mainId . '_price',
-    'DISCOUNT_PRICE_ID' => $mainId . '_price_discount',
-    'PRICE_TOTAL' => $mainId . '_price_total',
-    'SLIDER_CONT_OF_ID' => $mainId . '_slider_cont_',
-    'QUANTITY_ID' => $mainId . '_quantity',
-    'QUANTITY_DOWN_ID' => $mainId . '_quant_down',
-    'QUANTITY_UP_ID' => $mainId . '_quant_up',
-    'QUANTITY_MEASURE' => $mainId . '_quant_measure',
-    'QUANTITY_LIMIT' => $mainId . '_quant_limit',
-    'BUY_LINK' => $mainId . '_buy_link',
-    'ADD_BASKET_LINK' => $mainId . '_add_basket_link',
-    'BASKET_ACTIONS_ID' => $mainId . '_basket_actions',
-    'NOT_AVAILABLE_MESS' => $mainId . '_not_avail',
-    'COMPARE_LINK' => $mainId . '_compare_link',
-    'TREE_ID' => $mainId . '_skudiv',
-    'DISPLAY_PROP_DIV' => $mainId . '_sku_prop',
-    'DISPLAY_MAIN_PROP_DIV' => $mainId . '_main_sku_prop',
-    'OFFER_GROUP' => $mainId . '_set_group_',
-    'BASKET_PROP_DIV' => $mainId . '_basket_prop',
-    'SUBSCRIBE_LINK' => $mainId . '_subscribe',
-    'TABS_ID' => $mainId . '_tabs',
-    'TAB_CONTAINERS_ID' => $mainId . '_tab_containers',
-    'SMALL_CARD_PANEL_ID' => $mainId . '_small_card_panel',
-    'TABS_PANEL_ID' => $mainId . '_tabs_panel'
+	'ID' => $mainId,
+	'DISCOUNT_PERCENT_ID' => $mainId . '_dsc_pict',
+	'STICKER_ID' => $mainId . '_sticker',
+	'BIG_SLIDER_ID' => $mainId . '_big_slider',
+	'BIG_IMG_CONT_ID' => $mainId . '_bigimg_cont',
+	'SLIDER_CONT_ID' => $mainId . '_slider_cont',
+	'OLD_PRICE_ID' => $mainId . '_old_price',
+	'PRICE_ID' => $mainId . '_price',
+	'DISCOUNT_PRICE_ID' => $mainId . '_price_discount',
+	'PRICE_TOTAL' => $mainId . '_price_total',
+	'SLIDER_CONT_OF_ID' => $mainId . '_slider_cont_',
+	'QUANTITY_ID' => $mainId . '_quantity',
+	'QUANTITY_DOWN_ID' => $mainId . '_quant_down',
+	'QUANTITY_UP_ID' => $mainId . '_quant_up',
+	'QUANTITY_MEASURE' => $mainId . '_quant_measure',
+	'QUANTITY_LIMIT' => $mainId . '_quant_limit',
+	'BUY_LINK' => $mainId . '_buy_link',
+	'ADD_BASKET_LINK' => $mainId . '_add_basket_link',
+	'BASKET_ACTIONS_ID' => $mainId . '_basket_actions',
+	'NOT_AVAILABLE_MESS' => $mainId . '_not_avail',
+	'COMPARE_LINK' => $mainId . '_compare_link',
+	'TREE_ID' => $mainId . '_skudiv',
+	'DISPLAY_PROP_DIV' => $mainId . '_sku_prop',
+	'DISPLAY_MAIN_PROP_DIV' => $mainId . '_main_sku_prop',
+	'OFFER_GROUP' => $mainId . '_set_group_',
+	'BASKET_PROP_DIV' => $mainId . '_basket_prop',
+	'SUBSCRIBE_LINK' => $mainId . '_subscribe',
+	'TABS_ID' => $mainId . '_tabs',
+	'TAB_CONTAINERS_ID' => $mainId . '_tab_containers',
+	'SMALL_CARD_PANEL_ID' => $mainId . '_small_card_panel',
+	'TABS_PANEL_ID' => $mainId . '_tabs_panel'
 );
 $obName = $templateData['JS_OBJ'] = 'ob' . preg_replace('/[^a-zA-Z0-9_]/', 'x', $mainId);
 $name = !empty($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])
-    ? $arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE']
-    : $arResult['NAME'];
+	? $arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE']
+	: $arResult['NAME'];
 $title = !empty($arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_TITLE'])
-    ? $arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_TITLE']
-    : $arResult['NAME'];
+	? $arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_TITLE']
+	: $arResult['NAME'];
 $alt = !empty($arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_ALT'])
-    ? $arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_ALT']
-    : $arResult['NAME'];
+	? $arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_ALT']
+	: $arResult['NAME'];
 
 $haveOffers = !empty($arResult['OFFERS']);
 if ($haveOffers) {
-    $actualItem = isset($arResult['OFFERS'][$arResult['OFFERS_SELECTED']])
-        ? $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]
-        : reset($arResult['OFFERS']);
-    $showSliderControls = false;
+	$actualItem = isset($arResult['OFFERS'][$arResult['OFFERS_SELECTED']])
+		? $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]
+		: reset($arResult['OFFERS']);
+	$showSliderControls = false;
 
-    foreach ($arResult['OFFERS'] as $offer) {
-        if ($offer['MORE_PHOTO_COUNT'] > 1) {
-            $showSliderControls = true;
-            break;
-        }
-    }
+	foreach ($arResult['OFFERS'] as $offer) {
+		if ($offer['MORE_PHOTO_COUNT'] > 1) {
+			$showSliderControls = true;
+			break;
+		}
+	}
 } else {
-    $actualItem = $arResult;
-    $showSliderControls = $arResult['MORE_PHOTO_COUNT'] > 1;
+	$actualItem = $arResult;
+	$showSliderControls = $arResult['MORE_PHOTO_COUNT'] > 1;
 }
 
 $skuProps = array();
@@ -125,197 +125,193 @@ $arParams['MESS_RELATIVE_QUANTITY_MANY'] = $arParams['MESS_RELATIVE_QUANTITY_MAN
 $arParams['MESS_RELATIVE_QUANTITY_FEW'] = $arParams['MESS_RELATIVE_QUANTITY_FEW'] ?: Loc::getMessage('CT_BCE_CATALOG_RELATIVE_QUANTITY_FEW');
 
 $positionClassMap = array(
-    'left' => 'product-item-label-left',
-    'center' => 'product-item-label-center',
-    'right' => 'product-item-label-right',
-    'bottom' => 'product-item-label-bottom',
-    'middle' => 'product-item-label-middle',
-    'top' => 'product-item-label-top'
+	'left' => 'product-item-label-left',
+	'center' => 'product-item-label-center',
+	'right' => 'product-item-label-right',
+	'bottom' => 'product-item-label-bottom',
+	'middle' => 'product-item-label-middle',
+	'top' => 'product-item-label-top'
 );
 
 $discountPositionClass = 'product-item-label-big';
 if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y' && !empty($arParams['DISCOUNT_PERCENT_POSITION'])) {
-    foreach (explode('-', $arParams['DISCOUNT_PERCENT_POSITION']) as $pos) {
-        $discountPositionClass .= isset($positionClassMap[$pos]) ? ' ' . $positionClassMap[$pos] : '';
-    }
+	foreach (explode('-', $arParams['DISCOUNT_PERCENT_POSITION']) as $pos) {
+		$discountPositionClass .= isset($positionClassMap[$pos]) ? ' ' . $positionClassMap[$pos] : '';
+	}
 }
 
 $labelPositionClass = 'product-item-label-big';
 if (!empty($arParams['LABEL_PROP_POSITION'])) {
-    foreach (explode('-', $arParams['LABEL_PROP_POSITION']) as $pos) {
-        $labelPositionClass .= isset($positionClassMap[$pos]) ? ' ' . $positionClassMap[$pos] : '';
-    }
+	foreach (explode('-', $arParams['LABEL_PROP_POSITION']) as $pos) {
+		$labelPositionClass .= isset($positionClassMap[$pos]) ? ' ' . $positionClassMap[$pos] : '';
+	}
 }
 
 $arWaterMark = Array(
-    array(
-        "name" => "watermark",
-        "position" => "center", // Положение
-        "type" => "image",
-        "size" => "big",
-        "file" => $_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH.'/img/watermark-zaborpodkluch.png', // Путь к картинке
-        "fill" => "resize",
-        "coefficient" => 1,
+	array(
+		"name" => "watermark",
+		"position" => "center", // Положение
+		"type" => "image",
+		"size" => "big",
+		"file" => $_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH.'/img/watermark-zaborpodkluch.png', // Путь к картинке
+		"fill" => "resize",
+		"coefficient" => 1,
         'alpha_level' => 50,
-    )
+	)
 );
 
 if ($USER->isAdmin()){
-    // echo '<pre>'.print_r($arResult, true).'</pre>';
+	// echo '<pre>'.print_r($arResult, true).'</pre>';
 }
 
 ?>
 
 <section class="detail__catalog">
-    <div class="container detail__container">
-        <h1 class="main__title detail__title"><?=$arResult['NAME']?></h1>
-        <ul class="detail__list">
-            <?
+	<div class="container detail__container">
+		<h1 class="main__title detail__title"><?=$arResult['NAME']?></h1>
+		<ul class="detail__list">
+			<?
 
-            //echo "<pre>" . print_r($arResult, true) . "</pre>";die();
-            foreach ($arResult["PROPERTIES"]["PHOTO"]["VALUE"] as $photoId) {
-                $bigFile = CFile::ResizeImageGet($photoId, array('width' => 800, 'height' => 600), BX_RESIZE_IMAGE_EXACT, true, $arWaterMark);
-                ?>
-                <li class="detail__item">
-                    <img class="detail__img lazyload" data-src="<?= $bigFile['src'] ?>" alt="">
+			//echo "<pre>" . print_r($arResult, true) . "</pre>";die();
+			foreach ($arResult["PROPERTIES"]["PHOTO"]["VALUE"] as $photoId) {
+				$bigFile = CFile::ResizeImageGet($photoId, array('width' => 800, 'height' => 600), BX_RESIZE_IMAGE_EXACT, true, $arWaterMark);
+			?>
+				<li class="detail__item">
+					<img class="detail__img lazyload" data-src="<?= $bigFile['src'] ?>" alt="">
                     <span class="detail__item_art">Артикул: S<?=$arResult['IBLOCK_SECTION_ID']?>E<?=$arResult['ID']?></span>
-                </li>
-                <?
-            }
-            $stars = ceil(($arResult['SHOW_COUNTER']/$arResult['MAX_SHOW_COUNTER'])*10/2);
-            ?>
-        </ul>
-        <div class="detail__range">
-            <div class="rating" data-value="<?=$stars?>"></div>
-            <span>рейтинг: <?=(int)$arResult['SHOW_COUNTER']?></span>
-        </div>
-        <div class="detail__price">
-            Стоимость данного объекта под ключ: <?=number_format($arResult['PROPERTIES']['PRICE']['VALUE'],0,false,' ')?> рублей
-        </div>
-        <table class="detail__params">
-            <caption>Характеристики</caption>
-            <tbody>
-                <?if ($arResult['PROPERTIES']['MATERIAL']['VALUE']!=''){?>
-                <tr>
-                    <td>Материал</td>
-                    <td><?=$arResult['PROPERTIES']['MATERIAL']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['HEIGHT']['VALUE']>0){?>
-                <tr>
-                    <td>Высота</td>
-                    <td><?=$arResult['PROPERTIES']['HEIGHT']['VALUE']?> м.</td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['LENGTH']['VALUE']>0){?>
-                <tr>
-                    <td>Длина</td>
-                    <td><?=$arResult['PROPERTIES']['LENGTH']['VALUE']?> м</td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['COLOR']['VALUE']!=''){?>
-                <tr>
-                    <td>Цвет</td>
-                    <td><?=$arResult['PROPERTIES']['COLOR']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['COLUMN']['VALUE']!=''){?>
-                <tr>
-                    <td>Столбы</td>
-                    <td><?=$arResult['PROPERTIES']['COLUMN']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['COLUMN_TYPE']['VALUE']!=''){?>
-                <tr>
-                    <td>Тип монтажа</td>
-                    <td><?=$arResult['PROPERTIES']['COLUMN_TYPE']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['WALL']['VALUE']!=''){?>
-                <tr>
-                    <td>Окрас</td>
-                    <td><?=$arResult['PROPERTIES']['WALL']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['LIST']['VALUE']!=''){?>
-                <tr>
-                    <td>Толщина листа</td>
-                    <td><?=$arResult['PROPERTIES']['LIST']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['VOROTA']['VALUE']!=''){?>
-                <tr>
-                    <td>Ворота</td>
-                    <td><?=$arResult['PROPERTIES']['VOROTA']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['KALITKA']['VALUE']!=''){?>
-                <tr>
-                    <td>Калитка</td>
-                    <td><?=$arResult['PROPERTIES']['KALITKA']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['PROTYAGKA']['VALUE']!=''){?>
-                <tr>
-                    <td>Арматура</td>
-                    <td><?=$arResult['PROPERTIES']['PROTYAGKA']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['MONTAGE_SHTAKETNIK']['VALUE']!=''){?>
-                <tr>
-                    <td>Монтаж штакетника</td>
-                    <td><?=$arResult['PROPERTIES']['MONTAGE_SHTAKETNIK']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['GAP']['VALUE']!=''){?>
-                <tr>
-                    <td>Зазор между штакетником</td>
-                    <td><?=$arResult['PROPERTIES']['GAP']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['SETKA_ACHEIKA']['VALUE']!=''){?>
-                <tr>
-                    <td>Ячейка</td>
-                    <td><?=$arResult['PROPERTIES']['SETKA_ACHEIKA']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['PROTYAGKA_TOLSHINA']['VALUE']!=''){?>
-                <tr>
-                    <td>Толщина арматуры</td>
-                    <td><?=$arResult['PROPERTIES']['PROTYAGKA_TOLSHINA']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['PRUT_TOLSHINA']['VALUE']!=''){?>
-                <tr>
-                    <td>Толщина прута</td>
-                    <td><?=$arResult['PROPERTIES']['PRUT_TOLSHINA']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['SEKCIYA']['VALUE']!=''){?>
-                <tr>
-                    <td>Ширина секции</td>
-                    <td><?=$arResult['PROPERTIES']['SEKCIYA']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['VID_PIRPICHA']['VALUE']!=''){?>
-                <tr>
-                    <td>Вид кирпича</td>
-                    <td><?=$arResult['PROPERTIES']['VID_PIRPICHA']['VALUE']?></td>
-                </tr>
-                <?}?>
-                <?if ($arResult['PROPERTIES']['KLADKA_TOLSHINA']['VALUE']!=''){?>
-                <tr>
-                    <td>Толщина кладки</td>
-                    <td><?=$arResult['PROPERTIES']['KLADKA_TOLSHINA']['VALUE']?></td>
-                </tr>
-                <?}?>
-            </tbody>
-        </table>
-    </div>
-</section>
-            </tbody>
-        </table>
-    </div>
+				</li>
+			<?
+			}
+			$stars = ceil(($arResult['SHOW_COUNTER']/$arResult['MAX_SHOW_COUNTER'])*10/2);
+			?>
+		</ul>
+		<div class="detail__range">
+			<div class="rating" data-value="<?=$stars?>"></div>
+			<span>рейтинг: <?=(int)$arResult['SHOW_COUNTER']?></span>
+		</div>
+		<div class="detail__price">
+			Стоимость данного объекта под ключ: <?=number_format($arResult['PROPERTIES']['PRICE']['VALUE'],0,false,' ')?> рублей
+		</div>
+		<table class="detail__params">
+			<caption>Характеристики</caption>
+			<tbody>
+				<?if ($arResult['PROPERTIES']['MATERIAL']['VALUE']!=''){?>
+				<tr>
+					<td>Материал</td>
+					<td><?=$arResult['PROPERTIES']['MATERIAL']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['HEIGHT']['VALUE']>0){?>
+				<tr>
+					<td>Высота</td>
+					<td><?=$arResult['PROPERTIES']['HEIGHT']['VALUE']?> м.</td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['LENGTH']['VALUE']>0){?>
+				<tr>
+					<td>Длина</td>
+					<td><?=$arResult['PROPERTIES']['LENGTH']['VALUE']?> м</td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['COLOR']['VALUE']!=''){?>
+				<tr>
+					<td>Цвет</td>
+					<td><?=$arResult['PROPERTIES']['COLOR']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['COLUMN']['VALUE']!=''){?>
+				<tr>
+					<td>Столбы</td>
+					<td><?=$arResult['PROPERTIES']['COLUMN']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['COLUMN_TYPE']['VALUE']!=''){?>
+				<tr>
+					<td>Тип монтажа</td>
+					<td><?=$arResult['PROPERTIES']['COLUMN_TYPE']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['WALL']['VALUE']!=''){?>
+				<tr>
+					<td>Окрас</td>
+					<td><?=$arResult['PROPERTIES']['WALL']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['LIST']['VALUE']!=''){?>
+				<tr>
+					<td>Толщина листа</td>
+					<td><?=$arResult['PROPERTIES']['LIST']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['VOROTA']['VALUE']!=''){?>
+				<tr>
+					<td>Ворота</td>
+					<td><?=$arResult['PROPERTIES']['VOROTA']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['KALITKA']['VALUE']!=''){?>
+				<tr>
+					<td>Калитка</td>
+					<td><?=$arResult['PROPERTIES']['KALITKA']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['PROTYAGKA']['VALUE']!=''){?>
+				<tr>
+					<td>Арматура</td>
+					<td><?=$arResult['PROPERTIES']['PROTYAGKA']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['MONTAGE_SHTAKETNIK']['VALUE']!=''){?>
+				<tr>
+					<td>Монтаж штакетника</td>
+					<td><?=$arResult['PROPERTIES']['MONTAGE_SHTAKETNIK']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['GAP']['VALUE']!=''){?>
+				<tr>
+					<td>Зазор между штакетником</td>
+					<td><?=$arResult['PROPERTIES']['GAP']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['SETKA_ACHEIKA']['VALUE']!=''){?>
+				<tr>
+					<td>Ячейка</td>
+					<td><?=$arResult['PROPERTIES']['SETKA_ACHEIKA']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['PROTYAGKA_TOLSHINA']['VALUE']!=''){?>
+				<tr>
+					<td>Толщина арматуры</td>
+					<td><?=$arResult['PROPERTIES']['PROTYAGKA_TOLSHINA']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['PRUT_TOLSHINA']['VALUE']!=''){?>
+				<tr>
+					<td>Толщина прута</td>
+					<td><?=$arResult['PROPERTIES']['PRUT_TOLSHINA']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['SEKCIYA']['VALUE']!=''){?>
+				<tr>
+					<td>Ширина секции</td>
+					<td><?=$arResult['PROPERTIES']['SEKCIYA']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['VID_PIRPICHA']['VALUE']!=''){?>
+				<tr>
+					<td>Вид кирпича</td>
+					<td><?=$arResult['PROPERTIES']['VID_PIRPICHA']['VALUE']?></td>
+				</tr>
+				<?}?>
+				<?if ($arResult['PROPERTIES']['KLADKA_TOLSHINA']['VALUE']!=''){?>
+				<tr>
+					<td>Толщина кладки</td>
+					<td><?=$arResult['PROPERTIES']['KLADKA_TOLSHINA']['VALUE']?></td>
+				</tr>
+				<?}?>
+			</tbody>
+		</table>
+	</div>
 </section>
 <?/* Секция Открытая форма Тендер */ ?>
 <section class="tender_form_section">
@@ -335,80 +331,80 @@ if ($USER->isAdmin()){
 </section>
 
 <section class="detail__answer">
-    <div class="container detail__container">
-        <h2 class="detail__answer-title section__title">Вопрос-ответ</h2>
+	<div class="container detail__container">
+		<h2 class="detail__answer-title section__title">Вопрос-ответ</h2>
 
-        <div class="detail__question-block">
+		<div class="detail__question-block">
             <div class="detail__question">
-                <div class="detail__question-el">
-                    В течение какого срока устанавливается забор?
-                </div>
-                <div class="detail__question-answer">Ответ:</div>
-                <div class="reply">
-                    Сотрудничество с компаниями начинается с выезда замерщика на объект, время предварительно согласовывается с заказчиком. Специалист проводит замеры по периметру участка, составляет план, отмечает определенные особенности территории. После сбора информации он ответит на все интересующие заказчика вопросы и назовет примерный срок установки.
-                </div>
-            </div>
-            <div class="detail__question">
-                <div class="detail__question-el">
-                    Когда рабочие приступают к установке?
-                </div>
-                <div class="detail__question-answer">Ответ:</div>
-                <div class="reply">
-                    Рабочая бригада приступает к работам по установке забора сразу же после согласования всех вопросов и подтверждения договора. От процесса завоза материалов до монтажа забора под под ключ проходит не более 10 дней.
-                </div>
-            </div>
-            <div class="detail__question">
-                <div class="detail__question-el">
-                    В какой сезон выполняются работы по установки заборов?
-                </div>
-                <div class="detail__question-answer">Ответ:</div>
-                <div class="reply">
-                    Заказать ограждение вы можете в любое время года. Перед началом установки фирмы подберут подходящий тип ограждения и согласуют эти вопросы с вами. В летнее и весеннее время года в основном используется ленточный бетонный фундамент, в зимнее время года, когда почва замерла, предпочтительнее будет использовать винтовые сваи.
-                </div>
-            </div>
-            <div class="detail__question">
-                <div class="detail__question-el">
-                    Как рассчитываются размеры будущего забора?
-                </div>
-                <div class="detail__question-answer">Ответ:</div>
-                <div class="reply">
-                    Чтобы получить точные данные при расчете длины будущего забора, требуется ознакомиться с документами на конкретный участок. В документах указана вся информация с точным планом, которая потребуется при проведении последующих расчетов. Если речь идет об участке нестандартной формы, замеры проводятся в ручном режиме с применением специального оборудования. Полученные в результате данные помогают определить периметр будущего забора, его же площадь рассчитывается путем суммирования всех граней земельного участка.<br/><br/>
-                    Можно высчитать периметр будущего забора по площади, но это действует исключительно для участков, которые имеют правильную квадратную форму. Во всех других случаях расчеты ведутся только путем сложения всех сторон вне зависимости от формы участка. Метод действует и для прямоугольных, и для треугольных, и для многогранных участков.
+               <div class="detail__question-el">
+                   В течение какого срока устанавливается забор?
+               </div>
+               <div class="detail__question-answer">Ответ:</div>
+               <div class="reply">
+                   Сотрудничество с компаниями начинается с выезда замерщика на объект, время предварительно согласовывается с заказчиком. Специалист проводит замеры по периметру участка, составляет план, отмечает определенные особенности территории. После сбора информации он ответит на все интересующие заказчика вопросы и назовет примерный срок установки.
+               </div>
+           </div>
+           <div class="detail__question">
+               <div class="detail__question-el">
+                   Когда рабочие приступают к установке?
+               </div>
+               <div class="detail__question-answer">Ответ:</div>
+               <div class="reply">
+                   Рабочая бригада приступает к работам по установке забора сразу же после согласования всех вопросов и подтверждения договора. От процесса завоза материалов до монтажа забора под под ключ проходит не более 10 дней.
+               </div>
+           </div>
+           <div class="detail__question">
+               <div class="detail__question-el">
+                   В какой сезон выполняются работы по установки заборов?
+               </div>
+               <div class="detail__question-answer">Ответ:</div>
+               <div class="reply">
+                  Заказать ограждение вы можете в любое время года. Перед началом установки фирмы подберут подходящий тип ограждения и согласуют эти вопросы с вами. В летнее и весеннее время года в основном используется ленточный бетонный фундамент, в зимнее время года, когда почва замерла, предпочтительнее будет использовать винтовые сваи.
+               </div>
+           </div>
+           <div class="detail__question">
+               <div class="detail__question-el">
+                   Как рассчитываются размеры будущего забора?
+               </div>
+               <div class="detail__question-answer">Ответ:</div>
+               <div class="reply">
+                   Чтобы получить точные данные при расчете длины будущего забора, требуется ознакомиться с документами на конкретный участок. В документах указана вся информация с точным планом, которая потребуется при проведении последующих расчетов. Если речь идет об участке нестандартной формы, замеры проводятся в ручном режиме с применением специального оборудования. Полученные в результате данные помогают определить периметр будущего забора, его же площадь рассчитывается путем суммирования всех граней земельного участка.<br/><br/>
+                   Можно высчитать периметр будущего забора по площади, но это действует исключительно для участков, которые имеют правильную квадратную форму. Во всех других случаях расчеты ведутся только путем сложения всех сторон вне зависимости от формы участка. Метод действует и для прямоугольных, и для треугольных, и для многогранных участков.
 
-                </div>
-            </div>
-            <div class="detail__question">
-                <div class="detail__question-el">
-                    Можно ли начинать строительство забора в весеннее время, или лучше дождаться лета и сухой погоды?
-                </div>
-                <div class="detail__question-answer">Ответ:</div>
-                <div class="reply">
-                    Начинать строить забор можно в любое время года, современные материалы позволяют возводить надежные конструкции вне зависимости от температуры воздуха, влажности и других параметров. Если никаких ограничений по срокам установки забора нет – желательно приступать к обустройству сооружения после полного оттаивания земли после зимы, тогда почва будет более пригодна к проведению земельных работ.<br/><br/>
+               </div>
+           </div>
+           <div class="detail__question">
+               <div class="detail__question-el">
+                   Можно ли начинать строительство забора в весеннее время, или лучше дождаться лета и сухой погоды?
+               </div>
+               <div class="detail__question-answer">Ответ:</div>
+               <div class="reply">
+                   Начинать строить забор можно в любое время года, современные материалы позволяют возводить надежные конструкции вне зависимости от температуры воздуха, влажности и других параметров. Если никаких ограничений по срокам установки забора нет – желательно приступать к обустройству сооружения после полного оттаивания земли после зимы, тогда почва будет более пригодна к проведению земельных работ.<br/><br/>
 
-                    Учитывайте, что заборы из металлического штакетника и профнастила преимущественно начинают устанавливать в мае. В связи с этим у фирм, которые специализируются на монтаже, в этот период года сильная загруженность. Если вы не хотите ждать – заказывайте установку заранее.
+                   Учитывайте, что заборы из металлического штакетника и профнастила преимущественно начинают устанавливать в мае. В связи с этим у фирм, которые специализируются на монтаже, в этот период года сильная загруженность. Если вы не хотите ждать – заказывайте установку заранее.
 
-                </div>
-            </div>
-            <div class="detail__question">
-                <div class="detail__question-el">
-                    Какое количество лаг оптимально для забора 2 метра?
-                </div>
-                <div class="detail__question-answer">Ответ:</div>
-                <div class="reply">
-                    Оптимальное количество горизонтальных перекладин каркаса зависит от типа забора и особенностей его эксплуатации. Чаще всего удается обойтись двумя лагами, но если конструкция установлена в местах с сильной ветровой нагрузкой – желательно добавить третью перемычку.
-                </div>
-            </div>
-            <div class="detail__question">
-                <div class="detail__question-el">
-                    Требуется ли бетонировать столбы при установке забора?
-                </div>
-                <div class="detail__question-answer">Ответ:</div>
-                <div class="reply">
-                    Необходимость бетонирования зависит от глубины промерзания грунта в зимнее время года. В московском регионе данный параметр составляет 170 сантиментов, в итоге бетонирование проводится на эту глубину. Так как бетонирование – это слишком затратный процесс, можно воспользоваться альтернативными методами – провести уплотнение почвой или щебнем.
-                </div>
-            </div>
-        </div>
-    </div>
+               </div>
+           </div>
+           <div class="detail__question">
+               <div class="detail__question-el">
+                   Какое количество лаг оптимально для забора 2 метра?
+               </div>
+               <div class="detail__question-answer">Ответ:</div>
+               <div class="reply">
+                   Оптимальное количество горизонтальных перекладин каркаса зависит от типа забора и особенностей его эксплуатации. Чаще всего удается обойтись двумя лагами, но если конструкция установлена в местах с сильной ветровой нагрузкой – желательно добавить третью перемычку.
+               </div>
+           </div>
+           <div class="detail__question">
+               <div class="detail__question-el">
+                   Требуется ли бетонировать столбы при установке забора?
+               </div>
+               <div class="detail__question-answer">Ответ:</div>
+               <div class="reply">
+                   Необходимость бетонирования зависит от глубины промерзания грунта в зимнее время года. В московском регионе данный параметр составляет 170 сантиментов, в итоге бетонирование проводится на эту глубину. Так как бетонирование – это слишком затратный процесс, можно воспользоваться альтернативными методами – провести уплотнение почвой или щебнем.
+               </div>
+           </div>
+       </div>
+	</div>
 </section>
 
 <?/*div class="bx-catalog-element bx-<?=$arParams['TEMPLATE_THEME']?>" id="<?=$itemIds['ID']?>"
@@ -1015,7 +1011,7 @@ if ($USER->isAdmin()){
 								<?
 								$APPLICATION->IncludeComponent(
 									'bitrix:catalog.set.constructor',
-									'tenders',
+									'.default',
 									array(
 										'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 										'IBLOCK_ID' => $arResult['OFFERS_IBLOCK'],
@@ -1045,7 +1041,7 @@ if ($USER->isAdmin()){
 					{
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.set.constructor',
-							'tenders',
+							'.default',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -1244,7 +1240,7 @@ if ($USER->isAdmin()){
 					{
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.brandblock',
-							'tenders',
+							'.default',
 							array(
 								'IBLOCK_TYPE' => $arParams['IBLOCK_TYPE'],
 								'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -1272,7 +1268,7 @@ if ($USER->isAdmin()){
 				{
 					$APPLICATION->IncludeComponent(
 						'bitrix:sale.prediction.product.detail',
-						'tenders',
+						'.default',
 						array(
 							'BUTTON_ID' => $showBuyBtn ? $itemIds['BUY_LINK'] : $itemIds['ADD_BASKET_LINK'],
 							'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
@@ -1314,7 +1310,7 @@ if ($USER->isAdmin()){
 						CBitrixComponent::includeComponentClass('bitrix:sale.products.gift');
 						$APPLICATION->IncludeComponent(
 							'bitrix:sale.products.gift',
-							'tenders',
+							'.default',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'PRODUCT_ID_VARIABLE' => $arParams['PRODUCT_ID_VARIABLE'],
@@ -1421,7 +1417,7 @@ if ($USER->isAdmin()){
 
 						$APPLICATION->IncludeComponent(
 							'bitrix:sale.gift.main.products',
-							'tenders',
+							'.default',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'PAGE_ELEMENT_COUNT' => $arParams['GIFTS_MAIN_PRODUCT_DETAIL_PAGE_ELEMENT_COUNT'],

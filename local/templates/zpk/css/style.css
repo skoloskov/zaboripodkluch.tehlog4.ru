@@ -443,11 +443,30 @@ header {
   padding-top: 13px;
   font-size: 13px;
   line-height: 17px;
+
 }
 
 .hero__buttons .hero__button_item .hero__button_item_button {
   padding: 15px 20px;
   margin: 0 auto;
+  background-color: #ff004200;
+  color: #ff0042;
+}
+
+.company-page-content__title-block {
+  width: 100%;
+}
+
+.company-page-content__btn-block {
+  display: flex;
+}
+
+.company-page-content__title-block .company-page-content__phone {
+  margin-right: 20px;
+}
+
+.company-page-content__btn-block .hero__button_item_button {
+  padding: 15px 20px;
   background-color: #ff004200;
   color: #ff0042;
 }
@@ -510,7 +529,6 @@ header {
 .item-desc__title {
   text-indent: 0;
   width: 70%;
-  text-transform: uppercase;
 }
 
 .item-desc__price,
@@ -642,17 +660,7 @@ hr {
 }
 
 .company-content__bottom a {
-  display:  none;
-  width: 170px;
-  font-size: 17px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  background-color: var(--first-bg);
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  text-align: center;
-  padding: 1em 0em;
+
 }
 
 .company-content__left {
@@ -891,6 +899,47 @@ hr {
 }
 
 .slide__price::after {
+  content: 'руб.';
+  margin-left: 5px;
+}
+
+
+.company__photo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.company__photo .company__photo_item {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  height: 100%;
+  text-align: center;
+  max-width: 18%;
+}
+
+.company__photo .slide__img {
+  margin-bottom: 5px;
+  width: inherit;
+  cursor: pointer;
+}
+
+
+.photo_item__desc {
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.photo_item__price {
+  display: block;
+  margin-left: 10px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.photo_item__price::after {
   content: 'руб.';
   margin-left: 5px;
 }
@@ -1273,8 +1322,8 @@ hr {
 .footer__whatsapp::before {
   content: "";
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-image: url("../img/whatsapp.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -1284,9 +1333,9 @@ hr {
 .footer__viber::before {
   content: "";
   display: block;
-  width: 30px;
-  height: 30px;
-  background-image: url("../img/viber.png");
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/telegram.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1324,7 +1373,7 @@ hr {
   margin: 0 auto;
   position: relative;
   z-index: 999;
-  border-radius: 10px;
+  border-radius: 2px;
   margin-top: 30px;
 }
 
@@ -1419,9 +1468,11 @@ hr {
 }
 
 .button.primary {
-  background-color: #0075e2;
-  color: #fff !important;
-  border: none;
+  background-color: #0075e200;
+  color: #ff0042;
+  font-weight: bold;
+  border: 3px solid #ff0042;
+  margin: 0px 20px 0px 20px;
 }
 
 .order_fence__form,
@@ -1488,7 +1539,7 @@ textarea {
 }
 
 .checkbox__link {
-  color: #0075e2;
+  color: #7b8b2f;
   text-decoration: underline;
 }
 
@@ -1499,7 +1550,7 @@ textarea {
   bottom: 15px;
   height: 8px;
   width: 8px;
-  background-color: #0075e2;
+  background-color: #ff0042;
 }
 
 .checkbox__lbl {
@@ -1525,8 +1576,8 @@ textarea {
   display: block;
   height: 16px;
   width: 16px;
-  border: 1px solid #0075e2;
-  background-color: rgba(0, 117, 226, 0.1);
+  border: 1px solid #7b8b2f;
+  background-color: #d0e7528f;
   bottom: 10px;
   left: 0;
 }
@@ -1564,7 +1615,7 @@ textarea {
 
 
 
-/* Модальное окно изображений */
+  /* Модальное окно изображений */
 .photoView {
   position: fixed;
   height: 100%;
@@ -1622,10 +1673,10 @@ textarea {
 /* Кнопка вверх */
 #button__up {
   display: inline-block;
-  background-color: #0075e2;
+  background-color: #232616;
   width: 40px;
   height: 46px;
-  border-radius: 10px;
+  border-radius: 2px;
   position: fixed;
   bottom: 100px;
   left: 20px;
@@ -1633,14 +1684,14 @@ textarea {
   transition: opacity 0.5s, visibility 0.9s;
   visibility: hidden;
   z-index: 1000;
-  box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+box-shadow: 4px 5px 10px rgb(0 0 0 / 22%);
 }
 
 #button__up::after {
   content: url("../img/button_up.png");
   position: absolute;
   top: 8px;
-  left: 10px;
+  left: 9px;
 }
 
 #button__up.show {
@@ -2868,19 +2919,22 @@ form .smeta-form__input {
 
 .smeta-form__submit {
   padding: 10px 20px;
-  color: #fff;
   font-family: var(--Monserrat);
-  border: none;
-  background-color: var(--bg-btn);
   margin-right: 20px;
+  font-weight: bold;
+  color: #ff0042;
+  font-size: 17px;
+  border-radius: 2px;
+  background-color: #ff004200;
+  border: 3px solid #ff0042;
 }
 
 .smeta-form__download {
-  border: none;
-  padding: 0px 10px;
-  width: 40px;
-  height: 40px;
-  background-color: #3e87e0;
+  border: #b3cd34;
+  padding: 0px 13px;
+  width: 45px;
+  height: 45px;
+  background-color: #b3cd34;
 }
 .smeta-form__download::before {
   content: "";
@@ -2897,7 +2951,7 @@ form .smeta-form__input {
 }
 
 .smeta-form__fieldset small a {
-  color: #0053b9;
+  color: #b3cd34;
 }
 
 /* Правила модерации */
@@ -4552,6 +4606,47 @@ form .smeta-form__input {
     width: 24%;
   }
   /**/
+  .tender_list__item_title, .tender_list__item_description {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tender_list__item_title {
+    text-align: center;
+  }
+
+  .tender_list__item_title h3 {
+    font-size: 18px;
+  }
+
+  .tender_list__item_title a {
+    margin-bottom: 10px;
+  }
+
+  .tender_list__item_articul {
+    margin: 0 auto;
+  }
+
+  .tender_list__item_description div {
+    margin-bottom: 10px;
+  }
+
+  .tender_list__item_description div.tender_list__item_ten_stat {
+    margin-bottom: 25px;
+  }
+
+  .tender_list__item_button {
+    margin: 0 auto;
+  }
+
+  .section-page__container {
+    margin: 0 15px;
+  }
+
+  .objects_pictures__container {
+    margin: 0 10px;
+  }
+
 }
 /* 800px */
 @media (max-width: 800px) {
@@ -4601,6 +4696,7 @@ form .smeta-form__input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 25px;
   }
 
   .parameter__block {
@@ -4644,7 +4740,7 @@ form .smeta-form__input {
   }
 
   .company-content__title {
-    font-size: 26px;
+    font-size: 22px;
     text-align: center;
   }
 
@@ -4847,7 +4943,7 @@ form .smeta-form__input {
   }
 
   .company-content__img {
-    width: 100%;
+    width: 80%;
   }
 
   .footer__item {
@@ -5082,18 +5178,18 @@ form .smeta-form__input {
   }
 
   .company-content__img {
-    width: auto;
+   /* width: auto;*/
     max-height: 65px;
   }
 
   .range__title {
     position: absolute;
-    top: 90px;
-    font-size: 13px;
+    top: 95px;
+    font-size: 10px;
   }
 
   .range__block {
-    justify-content: center;
+  /*  justify-content: center;*/
     position: absolute;
     top: 110px;
     max-width: 150px;
@@ -5143,6 +5239,7 @@ form .smeta-form__input {
   .company-content__order {
     padding: 0 1em;
     height: 54px;
+    font-size: 12px;
   }
 
   .company-comment__slider {
@@ -5292,8 +5389,9 @@ form .smeta-form__input {
   }
 
   .company-content__btn-block {
-    justify-content: center;
+    justify-content: right;
     width: 100%;
+    padding: 0px 0px 0px 25px;
   }
 
   .company-content__phone {
@@ -5311,8 +5409,11 @@ form .smeta-form__input {
   }
 
   .company-content__phone_text::before {
-    left: 17px;
+    left: 8px;
     top: 12px;
+    width: 20px;
+    height: 20px;
+
   }
 
   .company-comment__slider .slick-arrow {
@@ -5389,7 +5490,7 @@ form .smeta-form__input {
 
   .footer__item {
     width: 100%;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .footer__nav {
@@ -5399,6 +5500,7 @@ form .smeta-form__input {
   .footer__nav,
   .footer__block-contacts {
     font-size: 16px;
+    text-align: center;
   }
 
   .footer__block-contacts {
@@ -5656,6 +5758,10 @@ form .smeta-form__input {
     width: 100%;
   }
 
+  .order_fence__form, .tender_fence__form, .thanks__block {
+    padding: 40px 0;
+  }
+
   /*test*/
   .news-img {
     width: 60%;
@@ -5676,6 +5782,7 @@ form .smeta-form__input {
 
   .types-fences__container {
     padding-left: 0;
+    margin: 0;
   }
 
   .types-fences__item {
@@ -5822,6 +5929,8 @@ form .smeta-form__input {
     justify-content: center;
     width: 100%;
   }
+
+
 }
 
 /* выпадающее меню */
@@ -6160,6 +6269,29 @@ menu_burger__contacts_phone {
   text-align: center;
 }
 
+.fences__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.fences__list .slider_fences__item {
+  margin-bottom: 20px;
+  width: 20%;
+}
+
+.fences__list .item-desc__title {
+  text-indent: 0;
+  width: 100%;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.fences__list .types-fences__img {
+  width: 99%;
+}
+
 section.advantages {
   padding-top: 80px;
   padding-bottom: 30px;
@@ -6281,9 +6413,152 @@ section.advantages {
   padding: 0 10px 20px;
 }
 
+
+
+.mylink{
+  color:#4a525b;
+  font-size:14pt;
+  font-weight: 700;}
+
+.mylink:hover{
+  color:#b3cd34;
+}
+
+.mylinkyes {
+  display: none;
+}
+
+
+
+/* Витрина тендеров */
+.tender_list {
+  padding: 50px 0;
+}
+
+.tender_list__item {
+  margin-bottom: 20px;
+  font-weight: 700;
+  border: 1px solid var(--first-bg);
+  border-radius: 2px;
+  box-shadow: 0px 5px 14px 0px rgba(142, 165, 26, 0.5);
+  padding: 30px 10px;
+}
+
+.tender_list__item span {
+  font-weight: 400;
+}
+
+.tender_list__item_title {
+  margin-bottom: 20px;
+}
+
+.tender_list__item_title,
+.tender_list__item_description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tender_list__item_title h3 {
+  margin: 0;
+}
+
+.tender_list__item_ten_stat {
+  color: #ff0000;
+}
+
+.tender_list__item_button a {
+  color: #ff0042;
+  padding: 10px 25px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  border-radius: 2px;
+  background-color: #ff004200;
+  border: 3px solid #ff0042;
+}
+
+/* Страница тендера */
+.tender_detail_title_container {
+  display: flex;
+  padding: 20px 0;
+}
+
+.tender_detail_title_container h1 {
+  margin: 0;
+}
+
+.tender_detail_title_container span {
+  text-align: center;
+}
+
+.tender_detail_title_container .tender_detail_status {
+  padding: 15px 25px;
+  color: #fff;
+  font-weight: 700;
+  height: 100%;
+  align-self: center;
+  white-space: nowrap;
+}
+
+.tender_detail_title_container .tender_detail_status_waiting {
+  background-color: #0075e2;
+}
+
+.tender_detail_title_container .tender_detail_status_taken {
+  background-color: #d2a200;
+}
+
+.tender_detail_title_container .tender_detail_status_completed {
+  background-color: #2F783D;
+}
+
+
+.tender_detail_features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #b3cd34;
+}
+
+.tender_detail_features div {
+  margin: 0 auto;
+}
+
+.tender_detail_features li {
+  margin-bottom: 15px;
+}
+
+.tender_detail_features li > span {
+  font-weight: 700;
+}
+
+.tender_detail_description {
+  padding: 20px 0;
+  border-bottom: 2px solid #b3cd34;
+}
+
+.tender_detail_description p {
+  text-indent: 0;
+}
+
+.tender_detail_button {
+  border: 3px solid var(--bd-hero-btn);
+  color: var(--bd-hero-btn);
+  margin: 30px auto;
+  display: block;
+  width: 250px;
+  padding: 20px 15px;
+  text-align: center;
+}
+
+
 @media (max-width: 1200px) {
   .objects_pictures__item {
     max-width: 33%;
+  }
+  .company__photo .company__photo_item {
+    max-width: 22%;
   }
 }
 
@@ -6329,6 +6604,11 @@ section.advantages {
   .objects_pictures__item {
     max-width: 50%;
   }
+
+  .company__photo .company__photo_item {
+    max-width: 45%;
+  }
+
 }
 
 @media (max-width: 800px) {
@@ -6368,6 +6648,30 @@ section.advantages {
 
   .territory__container {
     margin: 0;
+  }
+  .mylinkyes {
+    display: block !important;
+  }
+  .mylinknone {
+    display: none;
+  }
+
+  .mylinkyes p {
+    text-align: center;
+    text-indent: 0;
+  }
+
+  .company__photo .company__photo_item {
+    max-width: 45%;
+  }
+
+  .fences__list .slider_fences__item {
+    width: 33%;
+  }
+
+  .fences__list .item-desc__title {
+    font-size: 18px;
+    line-height: 19px;
   }
 
 }
@@ -6448,6 +6752,10 @@ section.advantages {
   .tender_fence__order_block,
   .tender_fence__user_block {
     width: 100%;
+    padding: 15px;
+  }
+
+  .order_fence__title {
     text-align: center;
   }
 
@@ -6491,6 +6799,63 @@ section.advantages {
 
   .menu_burger__first_item {
     margin-bottom: 5px;
+  }
+
+  .mylinkyes .mylink {
+    font-size: 11pt;
+  }
+
+  .footer__item:last-child {
+    width: 100%;
+  }
+
+  .footer__block-social {
+    justify-content: center;
+  }
+
+  .tender_detail_title_container {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .tender_detail_title_container h1 {
+    font-size: 2em;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+
+  .tender_detail_features div {
+    margin: 0 20px;
+  }
+
+  .company__photo .company__photo_item {
+    margin-right: 0;
+    max-width: 50%;
+  }
+
+  .company__photo .company__photo_item img {
+    width: 99%;
+    height: auto;
+  }
+
+  .photo_item__desc {
+    margin-left: 0;
+    font-size: 13px;
+  }
+
+  .photo_item__price {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .fences__list .slider_fences__item {
+    width: 50%;
+  }
+
+  .fences__list .item-desc__title {
+    font-size: 14px;
+    line-height: 16px;
   }
 
 }
@@ -6538,7 +6903,6 @@ section.advantages {
   .types-fences {
     width: 100%;
   }
-
 }
 
 .whatsapp-button {
@@ -6573,7 +6937,7 @@ section.advantages {
   border-radius: 50%;
   animation: animate 1.5s linear infinite;
   opacity: 0;
-  backface-visibility: hidden;
+  backface-visibility: hidden; 
 }
 
 .whatsapp-button:after{
@@ -6584,21 +6948,21 @@ section.advantages {
 {
   0%
   {
-    transform: scale(0.5);
-    opacity: 0;
+      transform: scale(0.5);
+      opacity: 0;
   }
   50%
   {
-    opacity: 1;
+      opacity: 1;
   }
   100%
   {
-    transform: scale(1.2);
-    opacity: 0;
+      transform: scale(1.2);
+      opacity: 0;
   }
 }
-@media (max-width : 800px) {
-  .whatsapp-button {
+@media (max-width : 800px) {  
+  .whatsapp-button {   
     bottom: 5px; /*отступ кнопки снизу от экрана*/
     right: 10px; /*отступ кнопки слева от экрана(right - справа)*/
   }
@@ -6620,119 +6984,114 @@ section.advantages {
   content: "\f232";
 }
 
-/* Витрина тендеров */
-.tender_list {
+/* Блок Люди искали */
+
+.people_search {
   padding: 50px 0;
 }
 
-.tender_list__item {
-  margin-bottom: 20px;
+
+.people_search__link {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  max-width: 100%;
+  background: #f0f6fa;
+  color: #242729;
+  text-decoration: none;
+  line-height: 16px;
+  font-size: 13px;
   font-weight: 700;
-  border: 1px solid var(--first-bg);
-  border-radius: 2px;
-  box-shadow: 0px 5px 14px 0px rgba(142, 165, 26, 0.5);
-  padding: 30px 10px;
+  padding: 12px 16px;
+  border-radius: 36px;
 }
 
-.tender_list__item span {
-  font-weight: 400;
+/* Блок Вопросы и ответы */
+
+.faq_accordion {
+  padding: 50px 0;
 }
 
-.tender_list__item_title {
-  margin-bottom: 20px;
+.people_search__header, .faq_accordion__header {
+  color: #242729;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
 }
 
-.tender_list__item_title,
-.tender_list__item_description {
+.faq_accordion__item {
+  border: 1px solid #d9e4eb;
+  padding: 16px;
+  border-radius: 24px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.faq_accordion__item_header {
+  align-items: center;
   display: flex;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
   justify-content: space-between;
+  width: 100%;
 }
 
-.tender_list__item_title h3 {
-  margin: 0;
+.faq_accordion__item_arrow {
+  padding: 0 20px;
+  font-size: 18px;
+  color: #737272;
+  position: relative;
 }
 
-.tender_list__item_ten_stat {
-  color: #ff0000;
-}
-
-.tender_list__item_button a {
-  color: #ffffff;
-  background-color: #0075e2;
-  padding: 10px 25px;
-}
-
-/* Страница тендера */
-.tender_detail_title_container {
-  display: flex;
-  padding: 20px 0;
-}
-
-.tender_detail_title_container h1 {
-  margin: 0;
-}
-
-.tender_detail_title_container span {
-  text-align: center;
-}
-
-.tender_detail_title_container .tender_detail_status {
-  padding: 15px 25px;
-  color: #fff;
-  font-weight: 700;
-  height: 100%;
-  align-self: center;
-  white-space: nowrap;
-}
-
-.tender_detail_title_container .tender_detail_status_waiting {
-  background-color: var(--bd-hero-btn);
-}
-
-.tender_detail_title_container .tender_detail_status_taken {
-  background-color: #d2a200;
-}
-
-.tender_detail_title_container .tender_detail_status_completed {
-  background-color: #2F783D;
+.faq_accordion__item_arrow .fa-chevron-down::before {
+  bottom: auto;
+  top: 0;
+  right: 0;
 }
 
 
-.tender_detail_features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #b3cd34;
+
+.faq_accordion__item_body {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
-.tender_detail_features div {
-  margin: 0 auto;
+.faq_accordion__item_body {
+  display: none;
 }
 
-.tender_detail_features li {
-  margin-bottom: 15px;
-}
-
-.tender_detail_features li > span {
-  font-weight: 700;
-}
-
-.tender_detail_description {
-  padding: 20px 0;
-  border-bottom: 2px solid #b3cd34;
-}
-
-.tender_detail_description p {
-  text-indent: 0;
-}
-
-.tender_detail_button {
-  border: 3px solid var(--bd-hero-btn);
-  color: var(--bd-hero-btn);
-  margin: 30px auto;
+.faq_accordion__item_active .faq_accordion__item_body {
   display: block;
-  width: 250px;
-  padding: 20px 15px;
-  text-align: center;
+}
+
+.faq_accordion__item_active .faq_accordion__item_arrow {
+  transform: rotate(180deg);
+}
+
+.faq_accordion__item_active .faq_accordion__item_arrow .fa-chevron-down::before {
+  right: 22px;
+}
+
+.container_filter {
+  margin-bottom: 50px;
+}
+
+.container_filter .bx_filter .bx_filter_section {
+  background: rgb(179, 205, 52);
+  border: 7px solid rgb(179, 205, 52);
+}
+
+.container_filter .bx_filter .bx_filter_select_container {
+  width: 100%;
+}
+
+.container_filter .bx_filter.bx_horizontal .bx_filter_parameters_box {
+  float: none;
+  width: 24%;
+  padding: 0 10px;
+  display: inline-block;
 }

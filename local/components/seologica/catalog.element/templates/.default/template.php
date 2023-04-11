@@ -761,7 +761,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 								<?
 								$APPLICATION->IncludeComponent(
 									'bitrix:catalog.set.constructor',
-									'tenders',
+									'.default',
 									array(
 										'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 										'IBLOCK_ID' => $arResult['OFFERS_IBLOCK'],
@@ -791,7 +791,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 					{
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.set.constructor',
-							'tenders',
+							'.default',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -990,7 +990,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 					{
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.brandblock',
-							'tenders',
+							'.default',
 							array(
 								'IBLOCK_TYPE' => $arParams['IBLOCK_TYPE'],
 								'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -1018,7 +1018,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 				{
 					$APPLICATION->IncludeComponent(
 						'bitrix:sale.prediction.product.detail',
-						'tenders',
+						'.default',
 						array(
 							'BUTTON_ID' => $showBuyBtn ? $itemIds['BUY_LINK'] : $itemIds['ADD_BASKET_LINK'],
 							'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
@@ -1060,7 +1060,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						CBitrixComponent::includeComponentClass('bitrix:sale.products.gift');
 						$APPLICATION->IncludeComponent(
 							'bitrix:sale.products.gift',
-							'tenders',
+							'.default',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'PRODUCT_ID_VARIABLE' => $arParams['PRODUCT_ID_VARIABLE'],
@@ -1167,7 +1167,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 
 						$APPLICATION->IncludeComponent(
 							'bitrix:sale.gift.main.products',
-							'tenders',
+							'.default',
 							array(
 								'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
 								'PAGE_ELEMENT_COUNT' => $arParams['GIFTS_MAIN_PRODUCT_DETAIL_PAGE_ELEMENT_COUNT'],
